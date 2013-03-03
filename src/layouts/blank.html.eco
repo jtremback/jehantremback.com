@@ -1,1 +1,10 @@
+<% for page in @getPages("#{@document.category}").toJSON():  %>
+<li>
+  <a href="<%= @rootRelHashify(page.url) %>">
+      <%= page.title %>
+  </a>
+</li>
+<% end %>
+
 <%- @content %>
+

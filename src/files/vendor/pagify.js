@@ -9,7 +9,7 @@
 
 (function($) {
   $.fn.pagify = function(options) {
-    var self = this;
+    var that = this;
 
     this.defaults = {
       'pages': [],
@@ -21,43 +21,43 @@
 
     // Run after loading if caching, otherwise run immediately
     var runAfterLoading = function() {
-      self.switchPage = function(page) {
+      that.switchPage = function(page) {
         // Page is selected from: passed in value, window.location, default
         if(!page) {
-          page = window.location.hash.replace('#','') || self.settings['default'];
+          page = window.location.hash.replace('#','') || that.settings['default'];
         }
 
-        if(self.settings.cache) {
+        if(that.settings.cache) {
           // Load page content from cache
-          $(self).html(self.pages[page]);
-          self.settings.onChange(page);
+          $(that).html(that.pages[page]);
+          that.settings.onChange(page);
         }
         else {
           // Fetch page content
           $.get(page+'.html', function(content) {
-            $(self).html(content);
-            self.settings.onChange(page);
+            $(that).html(content);
+            that.settings.onChange(page);
           }, 'text');
         }
       }
 
       // Respond to hash changes
       $(window).bind('hashchange', function() {
-        self.switchPage();
+        that.switchPage();
       });
 
       // Load initial page - current hash or default page
-      if(window.location.hash) self.switchPage();
-      else if(self.settings['default']) self.switchPage(self.settings['default']);
+      if(window.location.hash) that.switchPage();
+      else if(that.settings['default']) that.switchPage(that.settings['default']);
     };
 
     // Cache pages
-    if(self.settings.cache) {
-      self.pages = {};
-      var pageLoads = self.settings.pages.length;
-      $.each(self.settings.pages, function(ndx, page) {
+    if(that.settings.cache) {
+      that.pages = {};
+      var pageLoads = that.settings.pages.length;
+      $.each(that.settings.pages, function(ndx, page) {
         $.get(page+'.html', function(content) {
-          self.pages[page] = content;
+          that.pages[page] = content;
           pageLoads--;
           //alert(pageLoads);
           if(!pageLoads) runAfterLoading();

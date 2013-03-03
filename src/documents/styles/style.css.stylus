@@ -1,6 +1,12 @@
-#holding {
+.holding {
 	border: 1px solid black;
+	background: white;
 	position: absolute;
 	min-width: 100px;
 	min-height: 100px;
+	-webkit-transition: height 2s ease-in-out;
+	&.full {
+		top: 0;
+		bottom: 0;
+	}
 }
