@@ -1,1 +1,5 @@
-<%- JSON.stringify(@getPages("about")) %>
+<% for page in this.getPages("web-apps").toJSON():  %>
+<%- page.basename %>
+<% end %>
+
+<%- JSON.stringify(@makeJSON()) %>

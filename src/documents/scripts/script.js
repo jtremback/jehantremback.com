@@ -1,15 +1,3 @@
-// Comment
-// $(document).ready(function() {
-//  var active = $(".holding");
-//  $(active).pep();
-//  active.click(function(){
-//    $(this).addClass("full")
-//    $(this).pagify({
-//      pages: ['about'],
-//      default: 'about'
-//    });
-//  });
-// });
 
 var holder = function (elements) {
   var that = {};
@@ -18,7 +6,7 @@ var holder = function (elements) {
   that.polaroidExpander = function (event) {
     $.pep.toggleAll(false);
     var pagifyOpts = {
-      pages: ['about', 'one', 'two']
+      pages: ['hactus', 'hypothesis', 'expression-designer']
     }
     pagifyOpts.default = pagifyOpts.pages[0]
     console.log(pagifyOpts.default);
