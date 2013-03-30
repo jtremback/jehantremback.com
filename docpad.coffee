@@ -1,5 +1,6 @@
 # Define the Configuration
 docpadConfig = {
+  growl: false
   templateData:
     site:
       title: "Jehan's Portfolio"
@@ -9,6 +10,8 @@ docpadConfig = {
     # gets all pages in a certain category passed in
     getPages: (category) ->
       @getCollection("html").findAllLive({category: category})
+
+
 
     # turns root relative url to hash
     rootRelHashify: (url) ->

@@ -17,10 +17,12 @@ var holder = function (elements) {
 
   that.polaroidExpander = function (event) {
     $.pep.toggleAll(false);
-    $(this).parent().pagify({
-      pages: ['about', 'one', 'two'],
-      default: 'about'
-    });
+    var pagifyOpts = {
+      pages: ['about', 'one', 'two']
+    }
+    pagifyOpts.default = pagifyOpts.pages[0]
+    console.log(pagifyOpts.default);
+    $(this).parent().pagify(pagifyOpts);
   };
 
   that.initialize = (function () {
@@ -33,3 +35,8 @@ var holder = function (elements) {
 };
 
 var active = holder($(".holding"));
+
+var getPageList = function(category) {
+  getjson(url) = famn
+  famn.category
+}

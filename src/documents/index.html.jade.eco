@@ -6,6 +6,10 @@ isPage: true
 
 p Welcome to my website!
 
+<% for page in this.getPages("web-apps").toJSON():  %>
+li <%- @partial('hello.html.eco', { name: page.title }) %>
+<% end %>
+	
 div.holding(style="top: 100px; left: 100px;")
 	div(class="expander") Expander
 div.holding(style="top: 200px; left: 200px;")
