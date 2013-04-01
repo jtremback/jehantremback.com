@@ -2,4 +2,3 @@
 <%- page.basename %>
 <% end %>
 
-<%- JSON.stringify(@makeJSON()) %>
