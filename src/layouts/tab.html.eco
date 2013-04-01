@@ -6,5 +6,7 @@
 </li>
 <% end %>
 
+<div class="contract">contract</div>
+
 <%- @content %>
 

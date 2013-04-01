@@ -8,7 +8,7 @@
  */
 
 (function($) {
-  $.fn.pagify = function(options) {
+  $.fn.pagify = function(options, callback) {
     var that = this;
 
     this.defaults = {
