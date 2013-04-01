@@ -31,12 +31,14 @@
           // Load page content from cache
           $(that).html(that.pages[page]);
           that.settings.onChange(page);
+          callback();
         }
         else {
           // Fetch page content
           $.get(page+'.html', function(content) {
             $(that).html(content);
             that.settings.onChange(page);
+            callback();
           }, 'text');
         }
       }
