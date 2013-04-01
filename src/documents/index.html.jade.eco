@@ -12,5 +12,5 @@ li#<%- category.id %>
 <% end %>
 
 
-.polaroid#web_apps(style="top: 100px; left: 100px;")
+.polaroid#web_apps
 	.expander Expander

@@ -21,15 +21,20 @@ var polaroidInit = function(elements) {
       pagifyOpts.default = pagifyOpts.pages[0]
 
       //call pagify
-      element.pagify(pagifyOpts, function() { console.log(element.find('.contract'));})
-      // .on('mouseup', contract);
+      var detached = element.children().detach();
+      console.log(detached);
+      element.pagify(pagifyOpts, function() { 
+        //attach contract event handler and contract expanded element
+        element.find('.contract').on('mouseup', function() {
+          console.log('contract');
+          element.removeClass("expanded");
+          element.html(detached);
+          $.pep.toggleAll(true);
+        });
+      })
     })
 
-    //contract expanded element
     var contract = function(event) {
-      console.log('contract');
-      $(this).removeClass("expanded");
-      $.pep.toggleAll(true);
     }
   };
 
