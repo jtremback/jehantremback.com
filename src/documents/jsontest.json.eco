@@ -1,11 +1,14 @@
+<% a = 0 %>
 {<% for category in @site.categories: %>
-	"<%- category %>":
-	<% catJSON = @getPagesByCategory("web_apps").toJSON() %>
-	<% i = 0 %>
+	<% a++ %>
+	"<%- category.id %>":
+	<% catJSON = @getPagesByCategory(category.id).toJSON() %>
+	<% b = 0 %>
 	[<% for page in catJSON:  %>
-		<% i++ %>
-		"<%- page.basename + if i is catJSON.length then '"' else '",' %> 
+		<% b++ %>
+		"<%- page.basename + if b is catJSON.length then '"' else '",' %> 
 	<% end %>]
+	<%- if a is @site.categories.length then '' else ',' %>
 <% end %>}
 
 

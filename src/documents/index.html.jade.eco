@@ -6,16 +6,11 @@ isPage: true
 
 p Welcome to my website!
 
-<% for page in this.getPagesByCategory("web-apps").toJSON():  %>
-li <%- @partial('hello.html.eco', { name: page.title }) %>
+<% for category in @site.categories: %>
+li#<%- category.id %>
+	| <%- category.name %>
 <% end %>
 
-	
-div.holding(style="top: 100px; left: 100px;")
-	div(class="expander") Expander
-div.holding(style="top: 200px; left: 200px;")
-	div(class="expander") Expander
-div.holding(style="top: 300px; left: 300px;")
-	div(class="expander") Expander
-div.holding(style="top: 400px; left: 400px;")	
-	div(class="expander") Expander
+
+.polaroid#web_apps(style="top: 100px; left: 100px;")
+	.expander Expander

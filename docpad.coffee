@@ -10,8 +10,15 @@ docpadConfig = {
     site:
       title: "Jehan's Portfolio"
 
-      categories: ["web_apps"]
-    
+      categories: [
+        id: "web_apps"
+        name: "Web Apps" 
+      ,
+        id: "web_sites"
+        name: "Web Sites"
+      ]
+
+
     getPreparedTitle: (input) -> if @document.title then "#{@document.title} #{input} #{@site.title}" else "#{@site.title} #{input}"
 
     # gets all pages in a certain category passed in
