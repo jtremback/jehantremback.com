@@ -1,4 +1,4 @@
-<% for page in this.getPages("#{@document.category}").toJSON():  %>
+<% for page in this.getPagesByCategory("#{@document.category}").toJSON():  %>
 <li>
   <a href="<%= @rootRelHashify(page.url) %>">
       <%= page.title %>

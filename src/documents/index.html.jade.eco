@@ -6,7 +6,7 @@ isPage: true
 
 p Welcome to my website!
 
-<% for page in this.getPages("web-apps").toJSON():  %>
+<% for page in this.getPagesByCategory("web-apps").toJSON():  %>
 li <%- @partial('hello.html.eco', { name: page.title }) %>
 <% end %>
 

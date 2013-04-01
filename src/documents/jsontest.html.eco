@@ -1,4 +1,0 @@
-<% for page in this.getPages("web-apps").toJSON():  %>
-<%- page.basename %>
-<% end %>
-

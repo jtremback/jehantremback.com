@@ -1,0 +1,11 @@
+{<% for category in @site.categories: %>
+	"<%- category %>":
+	<% catJSON = @getPagesByCategory("web_apps").toJSON() %>
+	<% i = 0 %>
+	[<% for page in catJSON:  %>
+		<% i++ %>
+		"<%- page.basename + if i is catJSON.length then '"' else '",' %> 
+	<% end %>]
+<% end %>}
+
+
