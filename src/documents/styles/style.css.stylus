@@ -6,11 +6,11 @@
 	left: 50%;
 	min-width: 100px;
 	min-height: 100px;
-	-webkit-transition: height 2s ease-in-out;
+	-webkit-transition: all 2s ease-in-out;
 	&.expanded {
+		top: 10%;
+		bottom: 10%;
 		left: 10%;
 		right: 10%;
-		top: 0;
-		bottom: 0;
 	}
 }
