@@ -1,21 +1,29 @@
-var polaroidInit = function(elements) {
+var content = {
+  el : $('#content'),
+
+  closer : $('#content').find('#closer'),
+
+  tabs : $('#content').find('#tabs'),
+
+  open : function(pagifyOpts) {
+    //call pagify
+    content.tabs.pagify(pagifyOpts);
+    content.el.addClass('shown');
+  },
+
+  close : function() {
+    content.el.removeClass('shown');
+  }
+}
+
+var polaroids = {
+  el : $('.polaroid'),
+
+  expander : $('.polaroid').find('.expander'),
   
-  var expand = function (event) {
-    //turn pep off on all
-    $.pep.toggleAll(false);
-
-    //assign jq to useful vars
-    var element = $(this).parents('.polaroid'),
-        elementID = element.attr('id');
-
-    //save polaroid children and styling
-    var detached = {};
-    detached.children = element.children().detach();
-    detached.style = element.attr('style');
-    console.log(detached.style);
-
-    //clear polaroid styles and set expanded class
-    element.attr('style', '').addClass('expanded');
+  getPages : function (event) {
+    //assign jq to useful var
+    var elementID = $(this).parents('.polaroid').attr('id');
 
     $.getJSON('/jsontest.json', function(data) {
       var pagifyOpts = {};
@@ -25,27 +33,17 @@ var polaroidInit = function(elements) {
       //set first in arr to default
       pagifyOpts.default = pagifyOpts.pages[0]
 
-      //call pagify
-      element.pagify(pagifyOpts, function() { 
-        //attach contract event handler and contract expanded element
-        element.find('.contract').on('mouseup', function() {
-          element.removeClass("expanded");
-          element.html(detached.children).attr('style', detached.style);
-          $.pep.toggleAll(true);
-        });
-      })
+      content.open(pagifyOpts);
+
     })
-
-    var contract = function(event) {
-    }
-  };
-
-
-  var init = function() {
-    elements.pep();
-    elements.find('.expander').on('mouseup', expand);
-  }();
+  }
 }
 
-polaroidInit($('.polaroid'));
 
+
+var init = function() {
+  polaroids.el.pep();
+  polaroids.expander.on('mouseup', polaroids.getPages);
+  content.closer.on('mouseup', content.close);
+  console.log(content.close);
+}();

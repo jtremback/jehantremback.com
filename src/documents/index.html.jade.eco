@@ -7,10 +7,13 @@ isPage: true
 p Welcome to my website!
 
 <% for category in @site.categories: %>
-li#<%- category.id %>
+.polaroid#<%- category.id %>
+	.expander Expander
 	| <%- category.name %>
+	img(src="images/<%- category.id %>.jpg")
 <% end %>
 
 
-.polaroid#web_apps
-	.expander Expander
+#content
+	#closer Close
+	#tabs
