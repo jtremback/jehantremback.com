@@ -1,0 +1,16 @@
+.wrapper
+	.polaroid.id
+		%img.slot-0-1{:src => "images/id-s.jpg"}
+		.title_bar
+			.title Industrial Design
+			.link
+				%a{:href => "javascript:void(0)", :onclick => "document.getElementById('id_pop').style.display='block'"} EXPAND
+
+#id_pop.popup
+	.cthru
+		%a.black{:href => "javascript:void(0)", :onclick => "document.getElementById('id_pop').style.display='none'"}
+		.white.grid
+			%a.close{:href => "javascript:void(0)", :onclick => "document.getElementById('id_pop').style.display='none'"} CLOSE
+			.tabber
+
+

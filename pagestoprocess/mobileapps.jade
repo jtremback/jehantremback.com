@@ -1,0 +1,15 @@
+html
+  body
+    .wrapper
+      .mobileapps.polaroid
+        img.slot-0-1(src='images/mobileapps-s.jpg')
+        .title_bar
+          .title Mobile Apps
+          .link
+            a(href='javascript:void(0)', onclick='document.getElementById("mobileapps_pop").style.display="block"') EXPAND
+    #mobileapps_pop.popup
+      .cthru
+        a.black(href='javascript:void(0)', onclick='document.getElementById("mobileapps_pop").style.display="none"')
+        .grid.white
+          a.close(href='javascript:void(0)', onclick='document.getElementById("mobileapps_pop").style.display="none"') CLOSE
+          .tabber

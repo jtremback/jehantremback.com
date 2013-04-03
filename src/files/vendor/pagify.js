@@ -8,63 +8,22 @@
  */
 
 (function($) {
-  $.fn.pagify = function(options, callback) {
+  $.fn.pagify = function(prePath) {
     var that = this;
 
-    this.defaults = {
-      'pages': [],
-      'default': null,
-      'onChange': function (page) {},
-      'cache': false
-    };
-    this.settings = $.extend({}, this.defaults, options);
+    that.switchPage = function() {
+      page = window.location.hash.replace('#','');
 
-    // Run after loading if caching, otherwise run immediately
-    var runAfterLoading = function() {
-      that.switchPage = function(page) {
-        // Page is selected from: passed in value, window.location, default
-        if(!page) {
-          page = window.location.hash.replace('#','') || that.settings['default'];
-        }
+      // Fetch page content
+      $.get(prePath + page + '.html', function(content) {
+        $(that).html(content);
+      }, 'text');
+    }
 
-        if(that.settings.cache) {
-          // Load page content from cache
-          $(that).html(that.pages[page]);
-          that.settings.onChange(page);
-        }
-        else {
-          // Fetch page content
-          $.get(page+'.html', function(content) {
-            $(that).html(content);
-            that.settings.onChange(page);
-          }, 'text');
-        }
-      }
+    // Respond to hash changes
+    $(window).bind('hashchange', function() {
+      that.switchPage();
+    });    
 
-      // Respond to hash changes
-      $(window).bind('hashchange', function() {
-        that.switchPage();
-      });
-
-      // Load initial page - current hash or default page
-      if(window.location.hash) that.switchPage();
-      else if(that.settings['default']) that.switchPage(that.settings['default']);
-    };
-
-    // Cache pages
-    if(that.settings.cache) {
-      that.pages = {};
-      var pageLoads = that.settings.pages.length;
-      $.each(that.settings.pages, function(ndx, page) {
-        $.get(page+'.html', function(content) {
-          that.pages[page] = content;
-          pageLoads--;
-          //alert(pageLoads);
-          if(!pageLoads) runAfterLoading();
-        }, 'text');
-      });
-    } 
-    else runAfterLoading();
   };
-
 })(jQuery);

@@ -1,0 +1,44 @@
+.tabbertab{:title => "ANTM: Makeover"}
+	%h1 ANTM: Makeover
+	.row
+		%img.slot-0-1{:src => "images/makeover_0.png"}/
+		.slot-2-3-4-5
+			%p Azi Cragg and I designed America’s Next Top Model: Makeover using our “social agent interface” app design model. Instead of imagining the user isolated in front of the screen, we thought about the user as a “social agent” playing out a scenario created by the app with a group of friends. The key element of this model is that it is designed to allow a group of users to live out an imaginative game experience together in the real world, facilitated by geolocation and a step by step user flow. We have a few other examples of this thinking, but ANTM: Makeover is the clearest illustration of this concept.
+			%p The app is also an example of an experience targeted very tightly at a specific demographic.
+			%p DISCLAIMER: In hindsight, this app is not the most socially responsible, as it is designed to encourage girls to watch TV, buy makeup, and judge each other based on looks. Still, I think that ANTM: Makeover is a very good illustration of the social agent interface, and it could be easily adapted to encourage positive and healthy behaviors.
+
+	.row.nonmobile
+		%img.slot-0-1{:src => "images/makeover_1.png",}/
+		.slot-2-3-4-5
+			%p ANTM: Makeover is designed to create a social shopping, beauty, and photography experience for a group of friends. The app is not designed to be used daily by a single user, but instead to be used by a group of users together as an event or activity.
+			%p Users are first given a map of nearby retailers with coupons enabling them to buy certain clothing and cosmetic items from participating retailers at a significant discount. This provides these retailers with a promotional opportunity, and a way to debut new looks, while giving users of the app discounted merchandise.
+
+	.row.mobile
+		.slot-0-1-2-3
+			%p ANTM: Makeover is designed to create a social shopping, beauty, and photography experience for a group of friends. The app is not designed to be used daily by a single user, but instead to be used by a group of users together as an event or activity.
+			%p Users are first given a map of nearby retailers with coupons enabling them to buy certain clothing and cosmetic items from participating retailers at a significant discount. This provides these retailers with a promotional opportunity, and a way to debut new looks, while giving users of the app discounted merchandise.
+		%img.slot-4-5{:src => "images/makeover_1.png"}/
+
+	.row
+		%img.slot-0-1{:src => "images/makeover_2.png"}
+		.slot-2-3-4-5
+			%p In the Style tab, users are given step-by-step instructions on how to utilize the clothing and makeup that they have just purchased to create the latest looks and fashions. This tab was inspired by the beauty instructions in many women’s magazines.
+			%p The Shoot tab uses the device’s camera to facilitate a DIY fashion shoot. It would include interface elements making it as easy as possible for a budding photographer to get professional results.
+
+	.row.nonmobile
+		%img.slot-0-1{:src => "images/makeover_3.png",}
+		.slot-2-3-4-5
+			%p The Shoot tab uses the device’s camera to facilitate a DIY fashion shoot. It would include interface elements making it as easy as possible for a budding photographer to get professional results.
+			%p Layout guides help the photographer create a good composition, while effects filters let them get creative. There is also a sliding gallery of poses. These can be used by the photographer to help her guide the model into a good shot.
+
+	.row.mobile
+		.slot-0-1-2-3
+			%p The Shoot tab uses the device’s camera to facilitate a DIY fashion shoot. It would include interface elements making it as easy as possible for a budding photographer to get professional results.
+			%p Layout guides help the photographer create a good composition, while effects filters let them get creative. There is also a sliding gallery of poses. These can be used by the photographer to help her guide the model into a good shot.
+		%img.slot-4-5{:src => "images/makeover_3.png"}
+
+	.row
+		%img.slot-0-1{:src => "images/makeover_4.png"}
+		.slot-2-3-4-5
+			%p The Social tab allows users to upload and share photos with their friends. There could also be an option to upload the photos to Facebook or another social network, or the photos could be kept private to a close group of friends.
+			%p The app also uses in-app payments allowing the user to submit their favorite photos to the ANTM judges for a $1.99 charge. This could represent a sizable revenue stream, as well as boosting user engagement with the ANTM TV show.

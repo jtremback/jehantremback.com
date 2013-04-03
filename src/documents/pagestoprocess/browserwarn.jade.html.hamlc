@@ -1,0 +1,7 @@
+#browserwarn_pop.popup{:style => "display: block;"}
+	.cthru
+		%a.black{:href => "javascript:void(0)", :onclick => "document.getElementById('browserwarn_pop').style.display='none'"}
+		.white
+			%a.close{:href => "javascript:void(0)", :onclick => "document.getElementById('browserwarn_pop').style.display='none'"} CLOSE
+			%h1 Update Your Browser
+			%p This site does not display correctly on Internet Explorer 7 and lower. Please update to Chrome or Firefox.

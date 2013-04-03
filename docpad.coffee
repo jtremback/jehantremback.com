@@ -19,6 +19,9 @@ docpadConfig = {
       ]
 
 
+
+
+
     getPreparedTitle: (input) -> if @document.title then "#{@document.title} #{input} #{@site.title}" else "#{@site.title} #{input}"
 
     # gets all pages in a certain category passed in

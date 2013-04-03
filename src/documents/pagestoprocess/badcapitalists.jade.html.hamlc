@@ -1,0 +1,11 @@
+.tabbertab{:title => "BADcapitalists"}
+	%h1 BADcapitalists
+	.row
+		.slot-0-1-2
+			%p BADcapitalists was a collaboration between me and Scott “Azi” Cragg. Azi came up with the broader concepts, while I refined the ideas into concrete user experiences and interfaces. Our goal was to provide apps that make everyday tasks and activities as easy and intuitive as possible. 
+			%p All of our apps were designed with principal of the “one-touch interface”. As many interactions as possible can be carried out with only one touch. Only more in-depth options require menus.
+			%p Click on the image to see our site, or check out some of our best work in the tabs above.
+
+		.slot-3-4-5
+			%a{:href => "http://www.unbouncepages.com/badcapitalists/"}
+				%img{:src => "images/badcapitalists-s.jpg"}

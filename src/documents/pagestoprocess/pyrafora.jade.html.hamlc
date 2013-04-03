@@ -1,0 +1,33 @@
+.tabbertab{:title => "Pyrafora"}
+	%h1 Pyrafora
+
+	.row
+		.slot-0-1-2-3-4-5
+			%p Pyrafora is a social conversation platform designed by me, Jenny Ryan, Azi Cragg, and Rikke Rasmussen as a core piece of the Pyre project (more on that later). 
+
+	.row
+		.slot-0-1-2		
+			%p If you’re like me, you spent a lot of time on web forums in the late 90’s and early 00’s. If you’re not like me, take my word for it that forums were a lot of fun. Unfortunately, with the rise of web 2.0, many forums have been in decline. Users have moved on to newer experiences, and the creaky old interfaces of most forums don’t help either.	
+
+		.slot-3-4-5
+			%p In my opinion, however, web 2.0 is lacking in some ways. All the focus on individualization has made it cold and ego driven. Facebook is like a hall of mirrors, reflecting a user’s tastes and preferences back at him with its Top News algorithm. Twitter is like a gigantic outdoor shouting match. If you are not a heavy user, it is impossible to get a word in edgewise. 
+
+	.row
+		.slot-0-1-2-3-4-5
+			%p What web 2.0 lacks is a focus on the community, and a respect for longer pieces of writing. Forums provide a sense of community because every user sees the same “feed” in real time. Blogs provide a venue for more polished writing because the authors see them as their own personal creation. 
+
+			%p Pyrafora combines the best aspects of both the blog and the forum. Users are able to sign up and create their own blog site as a subdomain. They have an easy to use set of tools to customize their blog, while being limited in ways that keep blogs clean and consistent throughout the site. 
+
+	.row
+		.slot-0-1-2
+			%p Things start to get interesting when a user publishes their first post. Pyrafora picks it up and publishes it on a central forum interface. All users on the central forum see new posts from across Pyrafora pop up as threads, just like in an old style forum. The post titles (or “threads”) are ordered chronologically by time of last comment. When a user clicks on one of the threads, it takes her to the blog from which it originated. She can then comment on the post, causing that post’s thread to get bumped to the top of the forum again. Through this mechanism, popular posts stay up for a while, spurring conversation. The forum aspect drives commenting, while the blog aspect encourages people to put a lot of thought into their posts. 
+
+		.slot-3-4-5
+			%p If everything goes as planned, Pyrafora will have a lot of commenting on many different posts on many different topics. The main forum will be very fast moving. This is where another feature comes in. Users are able to create their own forums on their blogs. These are identical in function to the main forum, except they only display posts from blogs that the user adds. This way, somebody who is interested in say, permaculture, can have a forum displaying only posts from blogs on this topic. These are not separate from the main forum, they simply present a subset of its threads.
+
+	.row
+		.slot-0-1-2-3-4-5
+			%p Marc Juul recently finished writing the code for the first iteration of Pyrafora (a WordPress Multisite plugin for now). When we have time, we will start building a prototype site to test it in production.
+		
+		
+
