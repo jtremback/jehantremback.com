@@ -7,7 +7,7 @@ isPage: true
 p Welcome to my website!
 
 <% for category in @site.categories: %>
-.polaroid#<%- category.id %>
+.polaroid(data-default-page='<%- category.default %>')
 	.expander Expander
 	| <%- category.name %>
 	img(src="images/<%- category.id %>.jpg")

@@ -2,7 +2,7 @@
 {<% for category in @site.categories: %>
 	<% a++ %>
 	"<%- category.id %>":
-	<% catJSON = @getPagesByCategory(category.id).toJSON() %>
+	<% catJSON = @getPagesByCategory(category.id ).toJSON() %>
 	<% b = 0 %>
 	[<% for page in catJSON:  %>
 		<% b++ %>

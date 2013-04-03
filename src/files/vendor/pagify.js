@@ -11,6 +11,7 @@
   $.fn.pagify = function(prePath) {
     var that = this;
 
+    console.log(prePath);
     that.switchPage = function() {
       page = window.location.hash.replace('#','');
 

@@ -4,21 +4,33 @@ categories = {}
 # Define the Configuration
 docpadConfig = {
   growl: false
+
+  collections:
+    posts: ->
+      @getCollection("html").findAllLive({relativeOutDirPath: 'posts'},[{date: -1}]).on "add", (model) ->
+        model.setMetaDefaults({layout: "post"})
+
+    projects: ->
+      @getCollection("html").findAllLive({relativeOutDirPath: 'projects'},[{title: 1}]).on "add", (model) ->
+        model.setMetaDefaults({layout: "project"})
+
+    pages: ->
+      @getCollection("html").findAllLive({relativeOutDirPath: 'pages'}).on "add", (model) ->
+        model.setMetaDefaults({layout: "page"})
+
+    pictures: ->
+      @getCollection("html").findAllLive({relativeOutDirPath: 'pictures'},[{date: -1}]).on "add", (model) ->
+        model.setMetaDefaults({layout: "picture"})
+  
   templateData:
-
-
     site:
       title: "Jehan's Portfolio"
 
       categories: [
         id: "web_apps"
-        name: "Web Apps" 
-      ,
-        id: "web_sites"
-        name: "Web Sites"
+        name: "Web Apps"
+        default: "hypothesis"
       ]
-
-
 
 
 
