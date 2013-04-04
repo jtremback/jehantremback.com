@@ -6,6 +6,9 @@
     </a>
   </li>
   <% end %>
+  <li class="close closer">
+    <a href='#'>Close</a>
+  </li>
 </ul>
 
 <div id="content"><%- @content %></div>

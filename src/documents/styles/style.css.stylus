@@ -1,24 +1,24 @@
 // .polaroid {
-// 	border: 1px solid black;
-// 	background: white;
-// 	position: absolute;
-// 	top: 50%;
-// 	left: 50%;
-// 	min-width: 100px;
-// 	min-height: 100px;
+// 	border: 1px solid black
+// 	background: white
+// 	position: absolute
+// 	top: 50%
+// 	left: 50%
+// 	min-width: 100px
+// 	min-height: 100px
 // }
 
 // #content {
-// 	display: none;
+// 	display: none
 // &.shown {
-// 	display: block;
-// 	position: absolute;
-// 	top: 5%;
-// 	bottom: 5%;
-// 	left: 10%;
-// 	right: 10%;
-// 	background: white;
-// 	border: 1px solid black;
+// 	display: block
+// 	position: absolute
+// 	top: 5%
+// 	bottom: 5%
+// 	left: 10%
+// 	right: 10%
+// 	background: white
+// 	border: 1px solid black
 // }
 // }
 
@@ -178,12 +178,10 @@ img.bg
   bottom: 10%
   left: 0
   right: 0
-  background: black
-  opacity(.4)
+  background: rgba(0, 0, 0, 0.5)
   border-top: 2px solid #000
   border-bottom: 1px solid #fff
   box-shadow(hsla(0deg, 0%, 0%, 1) 0px 10px 0px)
-  background-image(linear-gradient(left top, #000, #433 50%, hsla(190deg, 50%, 95%, .3)  50%, #fff))
 
 //CARD
 .card
@@ -193,19 +191,18 @@ img.bg
   left: 30px
   color: white
   .me
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold;
+
+    font-weight: bold
     font-size: 3em
     margin-bottom: -.1em
   .tagline
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
     font-size: 1.5em
 
 .info
   position: absolute
   bottom: 0
   left: 0
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 2.5em
   .writing
     color: white
@@ -263,61 +260,51 @@ img.bg
     bottom: 1em
     right: 1em
 
-//LIGHTBOXEs
 
+
+#main
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  
+
+//LIGHTBOXES
 #popup
   display: none
 
   .black
     position: absolute
-    top: 0%
-    left: 0%
-    width: 100%
-    height: 100%
-    background-color: black
-    z-index: 1002
-    opacity(.5)
-
-  .cthru
-    position: absolute
-    z-index: 1001
-    width: 100%
-    height: 100%
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgba(0, 0, 0, 0.5)
 
   #holder
-    height: 100%
-    max-width: 1000px
-    margin-left: auto
-    margin-right: auto
-    padding: 0 15px
-    z-index: 1003
-    position: relative
-    background: white
-    font-family: "ttltext_thin"
-    font-size: 1.2em
-    color: black
-    #content
-      height: 100%;
-      overflow: auto;
-
-  .close
     position: absolute
     top: 0
-    right: 0
-    padding: .4em .5em
-    font-size: 1em
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: bold;
+    margin-left: 10%
+    margin-right: 10%
+    background: #fff
 
   &.shown
-    display: block;
-    position: absolute;
-    top: 5%;
-    bottom: 5%;
-    left: 10%;
-    right: 10%;
-    background: white;
-    border: 1px solid black;
+    display: block
+
+
+//TABS
+ul.tabnav
+  border-bottom: 1px solid black
+  margin: 0
+  padding: 0
+
+  li
+    list-style: none
+    margin: 0
+    float: left
+    &.closer
+      float: right
   
 
 //ROTATIONS
@@ -338,40 +325,6 @@ img.bg
 
 
 
-
-//TABS
-ul.tabnav
-  margin: 0
-  margin-top: .5em
-  margin-bottom: .5em
-  font-size: 1em
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-
-  li
-    list-style: none
-    margin: 0
-    display: inline
-
-    a
-      line-height: 2em
-      margin-right: .2em
-      padding: .5em
-      background: #eee
-      color: black
-      text-decoration: none
-      border: 1px solid black
-      border-bottom: 0
-      &:hover
-        background: #00a9c2
-        color: white
-    &.active a
-      background-color: #fff
-      border-bottom: 2px solid #fff
-      &:hover
-        color: black
-
-.active
-  background: white
 
 @media screen and (max-width: 720px)
   .polaroid
