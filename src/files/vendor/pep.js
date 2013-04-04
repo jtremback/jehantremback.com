@@ -431,7 +431,7 @@
       position:   'absolute', 
       top:        this.offset.top, 
       left:       this.offset.left, 
-      zIndex:     1
+      // zIndex:     1
     });
 
   };

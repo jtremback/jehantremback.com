@@ -14,9 +14,9 @@ docpadConfig = {
       title: "Jehan's Portfolio"
 
       categories: [
-        id: "web_apps"
-        name: "Web Apps"
-        default: "hypothesis"
+        id: "id",
+        name: "Industrial Design",
+        default: "wbtm"
       ,
         id: "web_sites"
         name: "Web Sites"
@@ -26,9 +26,9 @@ docpadConfig = {
         name: "Mobile Apps",
         default: "scope"
       ,
-        id: "id",
-        name: "Industrial Design",
-        default: "wbtm"
+        id: "web_apps"
+        name: "Web Apps"
+        default: "hypothesis"
       ]
 
 

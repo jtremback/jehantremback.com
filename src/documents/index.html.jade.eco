@@ -4,20 +4,17 @@ layout: "default"
 isPage: true
 ---
 
-.background
 .container
+  .background
   .surface
-
-#main
-  p Welcome to my website!
 
   <% for category in @site.categories: %>
   .wrapper
     .polaroid.<%- category.id %>(data-default-page='<%- category.default %>')
+      img(src="images/<%- category.id %>.jpg")
       .title_bar
         .title <%- category.name %>
         a.link(href='#<%- category.default %>') Expander
-      img(src="images/<%- category.id %>.jpg")
   <% end %>
 
 
