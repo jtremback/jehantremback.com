@@ -7,13 +7,15 @@ isPage: true
 p Welcome to my website!
 
 <% for category in @site.categories: %>
-.polaroid(data-default-page='<%- category.default %>')
-	.expander Expander
-	| <%- category.name %>
-	img(src="images/<%- category.id %>.jpg")
+.wrapper
+  .polaroid.<%- category.id %>(data-default-page='<%- category.default %>')
+    .title_bar
+      .title <%- category.name %>
+      .link Expander
+    img(src="images/<%- category.id %>.jpg")
 <% end %>
 
 
-#content
-	#closer Close
-	#tabs
+#popup
+  .close Close
+  #holder

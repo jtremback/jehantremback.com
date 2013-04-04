@@ -7,9 +7,9 @@
 
       // Do not run if the hash is empty
       if (window.location.hash != '') {
-        // Fetch page content
-        $.get(prePath + page + '.html', function(content) {
-          $(that).html(content);
+        // Fetch page popup
+        $.get(prePath + page + '.html', function(popup) {
+          $(that).html(popup);
         }, 'text');
       }
     }
@@ -27,19 +27,19 @@
 
 
 
-var content = {
+var popup = {
   //store relevant dom elements
-  el : $('#content'),
-  closer : $('#content').find('#closer'),
-  tabs : $('#content').find('#tabs'),
+  el : $('#popup'),
+  closer : $('#popup').find('.close'),
+  holder : $('#popup').find('#holder'),
 
   open : function(defaultPage) {
     window.location.hash = defaultPage;
-    content.el.addClass('shown');
+    popup.el.addClass('shown');
   },
 
   close : function() {
-    content.el.removeClass('shown');
+    popup.el.removeClass('shown');
     window.location.hash = '';
   }
 }
@@ -48,14 +48,14 @@ var content = {
 
 var polaroids = {
   //store relevant dom elements
-  el : $('.polaroid'),
-  expander : $('.polaroid').find('.expander'),
+  el : $('.wrapper'),
+  link : $('.polaroid').find('.link'),
 
   getPage : function (event) {
     //assign jq to useful var
     var defaultPage = $(this).parents('.polaroid').attr('data-default-page');
 
-    content.open(defaultPage);
+    popup.open(defaultPage);
   }
 }
 
@@ -65,14 +65,14 @@ var init = function() {
   //turn on pep on all polaroids
   polaroids.el.pep();
   
-  //put pagify on content area
-  content.tabs.pagify('content/');
+  //put pagify on popup area
+  popup.holder.pagify('content/');
 
   if (window.location.hash) {
-    content.open();
+    popup.open();
   }
 
   //attach events
-  polaroids.expander.on('mouseup', polaroids.getPage);
-  content.closer.on('mouseup', content.close);
+  polaroids.link.on('mouseup', polaroids.getPage);
+  popup.closer.on('mouseup', popup.close);
 }();

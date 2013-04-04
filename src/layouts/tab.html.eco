@@ -1,10 +1,11 @@
-<% for page in this.getPagesByCategory("#{@document.category}").toJSON():  %>
-<li>
-  <a href="#<%= page.basename %>">
+<ul class="tabnav">
+  <% for page in this.getPagesByCategory("#{@document.category}").toJSON():  %>
+  <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
+    <a href="#<%= page.basename %>">
       <%= page.title %>
-  </a>
-</li>
-<% end %>
+    </a>
+  </li>
+  <% end %>
+</ul>
 
-<%- @content %>
-
+<div id="content"><%- @content %></div>
