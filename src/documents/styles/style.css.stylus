@@ -171,14 +171,8 @@ html, body
         float: left
       .link
         float: right
-  &.z0
-    z-index: 1
-  &.z1
+  &.top
     z-index: 2
-  &.z2
-    z-index: 3
-  &.z3
-    z-index: 4
 
 
 //COVER
