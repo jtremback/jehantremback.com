@@ -14,9 +14,24 @@ box-shadow()
 transform()
   vendor('transform', arguments)
 
+box-sizing()
+  vendor('box-sizing', arguments)
+
+transpblack = rgba(0, 0, 0, .8)
+
+.cf
+  &:before, :after
+    content: " "
+    display: table
+  &:after
+    clear: both
+
 
 
 //RESET
+*
+  box-sizing: border-box
+
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, outsput, ruby, section, summary, time, mark, audio, video
   margin: 0
   padding: 0
@@ -27,9 +42,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
   display: block
-
-html
-  font-size: 1.1em
 
 p
   margin: 0.5em 0
@@ -105,7 +117,7 @@ img
 
 
 //IMPORTZ
-@import url(http://fonts.googleapis.com/css?family=Permanent+Marker)
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
 
 
 
@@ -114,6 +126,8 @@ html, body
   height: 100%
   width: 100%
   overflow: auto
+  font-family: "Bitter"
+  font-size: 20px
 
 .background
   background-image: url(../images/barksky.gif)
@@ -149,11 +163,10 @@ html, body
 //POLAROIDS
 .wrapper
   width: 11em
-  height: 11em
   position: absolute
   .polaroid
+    box-sizing: auto
     width: 100%
-    height: 100%
     padding: .7em
     padding-bottom: 1.4em
     background: white
@@ -171,32 +184,35 @@ html, body
         float: left
       .link
         float: right
+
+  .cover
+    padding-top: 100%
+    background: black
+    color: black
+    border-radius(8px)
+    background-image: url('../images/cover.jpg')
+    transition(all, .2s, false, false)
+    &:hover
+      rotate(-3deg)
+      color: white
+    &:active
+      rotate(-3deg)
+      color: white
+    .writing
+      position: absolute
+      top: 1em
+      left: 1em
+      color: white
+    .drag
+      position: absolute
+      bottom: 1em
+      right: 1em
+
   &.top
     z-index: 2
 
 
 //COVER
-.cover
-  background: black
-  color: black
-  border-radius(8px)
-  background-image: url('../images/cover.jpg')
-  transition(all, .2s, false, false)
-  &:hover
-    rotate(-3deg)
-    color: white
-  &:active
-    rotate(-3deg)
-    color: white
-  .writing
-    position: absolute
-    top: 1em
-    left: 1em
-    color: white
-  .drag
-    position: absolute
-    bottom: 1em
-    right: 1em
   
 
 
@@ -218,6 +234,11 @@ html, body
     margin-left: 10%
     margin-right: 10%
     background: #fff
+    padding: 1em
+
+  #content
+    margin-bottom: 4em
+    margin-top: 4em
 
   &.shown
     display: block
@@ -226,14 +247,17 @@ html, body
 
 //TABS
 ul.tabnav
-  border-bottom: 1px solid black
+  border-top: 1px dotted transpblack
+  border-bottom: 1px dotted transpblack
   margin: 0
   padding: 0
 
   li
     list-style: none
     margin: 0
-    float: left
+    padding: 1em
+    font-style: italic
+    display: inline-block
     &.closer
       float: right
   

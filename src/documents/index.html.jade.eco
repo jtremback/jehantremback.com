@@ -14,8 +14,10 @@ isPage: true
       img(src="images/<%- category.id %>.jpg")
       .title_bar
         .title <%- category.name %>
-        a.link(href='#<%- category.default %>') Expander
+        a.link(href='#<%- category.default %>') Expand
   <% end %>
+  .wrapper
+    .cover
 
 
 #popup
