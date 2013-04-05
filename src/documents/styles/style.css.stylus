@@ -100,8 +100,7 @@ a
     color: #1689BA
     text-decoration: none !important
   &:hover, &:active
-    background: #00a9c2
-    color: #fff
+    color: #174559
 
 img
   max-width: 100%
@@ -130,7 +129,7 @@ html, body
   font-size: 20px
 
 .background
-  background-image: url(../images/barksky.gif)
+  background-image: url(/images/backgrounds/crisscross.jpg)
   background-size: cover
   background-position: bottom right
   position: absolute
@@ -154,8 +153,18 @@ html, body
     left: 0
     right: 0
     background: rgba(0, 0, 0, 0.5)
-    border-top: 2px solid #000
-    border-bottom: 1px solid #fff
+
+    /* Safari 5.1+, Mobile Safari, Chrome 10+ */
+    background-image: -webkit-linear-gradient(left top, rgba(0, 0, 0, 0.5), rgba(68, 51, 51, 0.1) 50%, hsla(190deg, 50%, 95%, .1)  50%, rgba(255, 255, 255, 0.5)); 
+
+    /* Firefox 3.6+ */
+    background-image: -moz-linear-gradient(left top, rgba(0, 0, 0, 0.5), rgba(68, 51, 51, 0.5) 50%, hsla(190deg, 50%, 95%, .3)  50%, rgba(255, 255, 255, 0.5));
+    
+    /* IE 10+ */
+    background-image: -ms-linear-gradient(left top, rgba(0, 0, 0, 0.5), rgba(68, 51, 51, 0.5) 50%, hsla(190deg, 50%, 95%, .3)  50%, rgba(255, 255, 255, 0.5));
+
+    border-top: 1px solid #000
+    border-bottom: 1px solid #aaa
     box-shadow(hsla(0deg, 0%, 0%, 1) 0px 10px 0px)
 
 
@@ -165,11 +174,11 @@ html, body
   width: 11em
   position: absolute
   .polaroid
+    background: url(/images/papers/groovepaper.png)
     box-sizing: auto
     width: 100%
     padding: .7em
     padding-bottom: 1.4em
-    background: white
     box-shadow(black 0px 5px 10px)
     font-family: "Permanent Marker"
     border: 1px solid black
@@ -193,10 +202,10 @@ html, body
     background-image: url('../images/cover.jpg')
     transition(all, .2s, false, false)
     &:hover
-      rotate(-3deg)
+      transform: rotate(-3deg)
       color: white
     &:active
-      rotate(-3deg)
+      transform: rotate(-3deg)
       color: white
     .writing
       position: absolute
@@ -231,9 +240,9 @@ html, body
   #holder
     position: absolute
     top: 0
-    margin-left: 10%
-    margin-right: 10%
-    background: #fff
+    margin-left: auto
+    margin-right: auto
+    background: url(/images/papers/groovepaper.png)
     padding: 1em
 
   #content
@@ -282,19 +291,26 @@ ul.tabnav
 
 
 //MEDIA QUERIES
-.nonmobile
-  display: block
-
-.mobile
-  display: none
 
 @media screen and (max-width: 720px)
+  .nonmobile
+    display: none
+
+  .mobile
+    display: block
+    
   .wrapper
     font-size: 1em
     top: 200px
     left: 50px
 
 @media screen and (min-width: 720px)
+  .nonmobile
+    display: block
+
+  .mobile
+    display: none
+
   .wrapper
     font-size: 1.5em
     top: 120px

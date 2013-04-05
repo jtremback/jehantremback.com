@@ -43,14 +43,15 @@ var popup = (function () {
 
 var polaroid = (function() {
   var wrapper = $('.wrapper'),
-      stack = $.makeArray(wrapper);
+      a = 1;
 
   return {
-    wrapper: wrapper,
-
-    bringToTop : function() {
-      wrapper.removeClass('top')
-      $(this).addClass('top');
+    init : function() {
+      wrapper.pep({
+        start: function(event, object) {
+          $(object.el).css("z-index", a++); 
+        }
+      });
     }
   }
 })();
@@ -58,8 +59,8 @@ var polaroid = (function() {
 
 
 var init = function() {
-  $('.wrapper').on('mousedown', polaroid.bringToTop);
-  polaroid.wrapper.pep();
+  polaroid.init()
+
   //if window has a hash, run with it
   var hashProc = function() {
     if (window.location.hash) {
