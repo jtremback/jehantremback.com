@@ -180,7 +180,6 @@ html, body
     padding: .7em
     padding-bottom: 1.4em
     box-shadow(black 0px 5px 10px)
-    // font-family: "Permanent Marker"
     cursor: move
     -webkit-backface-visibility: hidden
     img
@@ -275,7 +274,7 @@ ul.tabnav
       a 
         color: #c65549
         &:hover
-          hcolor: #8f3c2d
+          color: #8f3c2d
   
 
 
