@@ -6,7 +6,7 @@
 
 /* Containers */
 body { font-size: 0.875em; padding: 0; }
-#holder{ width:740px; }
+.grid{ width:740px; }
 .row{ clear:left; }
 
 /* Slots Setup */

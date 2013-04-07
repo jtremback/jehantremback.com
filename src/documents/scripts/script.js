@@ -17,7 +17,7 @@ WebFontConfig = {
 var popup = (function () {
   var el = $('#popup'),
       closer = $('#popup').find('.close'),
-      holder = $('#popup').find('#holder'),
+      holder = $('#popup').find('#content-holder'),
       prePath = 'content/';
 
   return {
@@ -42,7 +42,7 @@ var popup = (function () {
 
 
 var polaroid = (function() {
-  var wrapper = $('.wrapper'),
+  var wrapper = $('.polaroid-wrapper'),
       a = 1;
 
   return {
@@ -52,6 +52,10 @@ var polaroid = (function() {
           $(object.el).css("z-index", a++); 
         }
       });
+
+      wrapper.find('.link').on('mouseup', function() {
+        window.location.hash = $(this).attr('href');
+      })
     }
   }
 })();

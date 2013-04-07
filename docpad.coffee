@@ -15,7 +15,7 @@ docpadConfig = {
 
       categories: [
         id: "id",
-        name: "Industrial Design",
+        name: "Industrial",
         default: "wbtm"
       ,
         id: "web_sites"

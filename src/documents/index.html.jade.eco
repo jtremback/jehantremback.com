@@ -9,7 +9,7 @@ isPage: true
   .surface
 
   <% for category in @site.categories: %>
-  .wrapper
+  .polaroid-wrapper
     .polaroid.<%- category.id %>(data-default-page='<%- category.default %>')
       img(src="images/<%- category.id %>.jpg")
       .title_bar
@@ -22,4 +22,5 @@ isPage: true
 
 #popup
   .close.black
-  #holder
+  #content-wrapper
+    #content-holder.grid
