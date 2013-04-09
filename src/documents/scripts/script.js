@@ -1,5 +1,7 @@
+var clickEvent = "createTouch" in document ? "touchend" : "click";
+
 WebFontConfig = {
-  google: { families: [ 'Permanent+Marker::latin', 'Bitter::latin' ] }
+  google: { families: [ 'Bitter::latin' ] }
  };
 
 (function() {
@@ -40,9 +42,8 @@ var popup = (function () {
 })();
 
 
-
 var polaroid = (function() {
-  var wrapper = $('.polaroid-wrapper'),
+  var wrapper = $('.wrapper'),
       a = 1;
 
   return {
@@ -50,10 +51,12 @@ var polaroid = (function() {
       wrapper.pep({
         start: function(event, object) {
           $(object.el).css("z-index", a++); 
-        }
+        },
+        shouldPreventDefault: true
       });
 
-      wrapper.find('.link').on('mouseup', function() {
+
+      wrapper.find('.link').on('touchend', function(event){
         window.location.hash = $(this).attr('href');
       })
     }

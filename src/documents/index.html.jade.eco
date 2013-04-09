@@ -1,5 +1,4 @@
 ---
-title: "Welcome!"
 layout: "default"
 isPage: true
 ---
@@ -7,17 +6,22 @@ isPage: true
 .container
   .background
   .surface
+    .title Jehan Tremback
+      .desc UI/UX, Frontend
+    a.about(href="#jehan") About
 
   <% for category in @site.categories: %>
-  .polaroid-wrapper
-    .polaroid.<%- category.id %>(data-default-page='<%- category.default %>')
-      img(src="images/<%- category.id %>.jpg")
+  .wrapper
+    .polaroid.<%- category.id %>
+      .img(style='background: url(images/<%- category.id %>.jpg);')
       .title_bar
         .title <%- category.name %>
         a.link(href='#<%- category.default %>') Expand
   <% end %>
   .wrapper
     .cover
+      .writing Jehan's Portfolio
+      .drag (drag me)
 
 
 #popup

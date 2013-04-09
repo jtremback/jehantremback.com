@@ -104,7 +104,7 @@ a
 
 img
   max-width: 100%
-  border: 1px solid #666
+  border: 1px solid #888
 
 .row
   margin-bottom: 1em
@@ -115,21 +115,16 @@ img
 
 
 
-//IMPORTZ
-@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
-
-
-
 //PAGE
 html, body
   height: 100%
   width: 100%
   overflow: auto
-  font-family: "Bitter"
+  font-family: "Bitter", serif
   font-size: 20px
 
 .background
-  background-image: url(/images/backgrounds/crisscross.jpg)
+  background-image: url(../images/backgrounds/crisscross1_5k.gif)
   background-size: cover
   background-position: bottom right
   position: absolute
@@ -167,27 +162,52 @@ html, body
     border-bottom: 1px solid #aaa
     box-shadow(hsla(0deg, 0%, 0%, 1) 0px 10px 0px)
 
+    .title
+      position: absolute
+      top: 1em
+      left: 2rem
+
+      font-size: 3em
+      color: white
+      .desc
+        font-size: .7em
+
+    .about
+      text-decoration: underline
+      position: absolute
+      bottom: 1em
+      left: 2rem
+
+      font-size: 2em
+
+
+
 
 
 //POLAROIDS
-.polaroid-wrapper
+.wrapper
   width: 11em
   position: absolute
   .polaroid
-    background: url(/images/papers/groovepaper.png)
+    background: url(../images/papers/groovepaper.png)
     box-sizing: auto
     width: 100%
     padding: .7em
     padding-bottom: 1.4em
-    box-shadow(black 0px 5px 10px)
+    box-shadow: black 0px 5px 10px
     cursor: move
     -webkit-backface-visibility: hidden
-    img
+    .img
       width: 100%
+      padding-top: 100%
+      border: 1px solid #888
+      box-shadow: inset rgba(0, 0, 0, .3) 0px 0px 10px
+      background-size: cover
 
     .title_bar
       width: 100%
       font-size: .8em
+      padding-top: .5em
       .title
         float: left
       .link
@@ -198,8 +218,7 @@ html, body
     background: black
     color: black
     border-radius(8px)
-    background-image: url('../images/cover.jpg')
-    transition(all, .2s, false, false)
+    background-image: url(../images/cover.jpg)
     &:hover
       transform: rotate(-3deg)
       color: white
@@ -215,6 +234,7 @@ html, body
       position: absolute
       bottom: 1em
       right: 1em
+      color: white
 
   &.top
     z-index: 2
@@ -243,7 +263,7 @@ html, body
     #content-holder
       margin-left: auto
       margin-right: auto
-      background: url(/images/papers/groovepaper.png)
+      background: url(../images/papers/groovepaper.png)
       padding: 1em
 
   #content
@@ -269,8 +289,11 @@ ul.tabnav
     padding: 1em
     font-style: italic
     display: inline-block
+    &.active
+      font-weight: bold
     &.closer
       float: right
+      font-weight: bold
       a 
         color: #c65549
         &:hover
@@ -305,8 +328,8 @@ ul.tabnav
   .mobile
     display: block
     
-  .polaroid-wrapper
-    font-size: 1em
+  .wrapper
+    font-size: 1.5em
     top: 200px
     left: 50px
 
@@ -317,13 +340,13 @@ ul.tabnav
   .mobile
     display: none
 
-  .polaroid-wrapper
+  .wrapper
     font-size: 1.5em
     top: 120px
     right: 50px
     
 @media screen and (min-width: 986px)
-  .polaroid-wrapper
+  .wrapper
     font-size: 1.75em
     top: 120px
     right: 50px
