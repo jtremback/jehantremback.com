@@ -124,7 +124,7 @@ html, body
   font-size: 20px
 
 .background
-  background-image: url(../images/backgrounds/crisscross1_5k.gif)
+  background-image: url(../images/backgrounds/barksky.gif)
   background-size: cover
   background-position: bottom right
   position: absolute
@@ -164,10 +164,11 @@ html, body
 
     .title
       position: absolute
-      top: 1em
+      top: 2rem
+      bottom: 2rem
       left: 2rem
 
-      font-size: 3em
+      font-size: 2.5em
       color: white
       .desc
         font-size: .7em
@@ -175,10 +176,9 @@ html, body
     .about
       text-decoration: underline
       position: absolute
-      bottom: 1em
-      left: 2rem
-
-      font-size: 2em
+      bottom: 0
+      left: 0
+      font-size: .7em
 
 
 

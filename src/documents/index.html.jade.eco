@@ -7,8 +7,8 @@ isPage: true
   .background
   .surface
     .title Jehan Tremback
-      .desc UI/UX, Frontend
-    a.about(href="#jehan") About
+      .desc UI/UX | Frontend
+      a.about(href="#jehan") About Me
 
   <% for category in @site.categories: %>
   .wrapper
@@ -20,7 +20,7 @@ isPage: true
   <% end %>
   .wrapper
     .cover
-      .writing Jehan's Portfolio
+      .writing Look Inside
       .drag (drag me)
 
 

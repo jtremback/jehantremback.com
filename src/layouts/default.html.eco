@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title><%= @getPreparedTitle("stoops") %></title>
+		<title><%= @getPreparedTitle() %></title>
 		<%- @getBlock("meta").toHTML() %>
 		<%- @getBlock("styles").add(["styles/style.css"]).toHTML() %>
 		
