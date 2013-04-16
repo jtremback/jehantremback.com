@@ -1,5 +1,4 @@
-var clickEvent = "createTouch" in document ? "touchend" : "click";
-
+//Get Fonts
 WebFontConfig = {
   google: { families: [ 'Bitter::latin' ] }
  };
@@ -16,13 +15,16 @@ WebFontConfig = {
 
 
 
+//Group everything having to do with popup content window together
 var popup = (function () {
+  //Assign elements to nice vars
   var el = $('#popup'),
       closer = $('#popup').find('.close'),
       holder = $('#popup').find('#content-holder'),
       prePath = 'content/';
 
   return {
+    //read url and get corresponding data
     open : function(page) {
       var urlFrag = page.replace('#','');
 
@@ -31,9 +33,11 @@ var popup = (function () {
         holder.html(content);
       }, 'text');
 
+      //show the popup
       el.addClass('shown');
     },
 
+    //hide the popup
     close : function() {
       el.removeClass('shown');
     }
@@ -68,14 +72,17 @@ var polaroid = (function() {
 var init = function() {
   polaroid.init()
 
-  //if window has a hash, run with it
+  //if window has a hash, run with it.
+  //if not, close it.
   var hashProc = function() {
     if (window.location.hash) {
       popup.open(window.location.hash);
     } else {
       popup.close()
     }
-  } 
+  }
+
+  //run on start
   hashProc();
 
   //respond to hash changes w/out reloads
