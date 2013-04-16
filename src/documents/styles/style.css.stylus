@@ -14,6 +14,9 @@ box-shadow()
 transform()
   vendor('transform', arguments)
 
+transition()
+  vendor('transition', arguments)
+
 box-sizing()
   vendor('box-sizing', arguments)
 
@@ -77,6 +80,16 @@ strong
 
 hr
   margin: 1em 0
+  height: 1px
+  border: none
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
+  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
+
+h1, h2, h3, h4, h5, h6
+  font-family: "Oxygen" !important
+  margin-bottom: .5em
 
 h1
   font-size: 3em
@@ -94,13 +107,13 @@ h5, h6
   font-size: 1em
 
 a
-  color: #1689BA
+  color: #1E62BF
   text-decoration: none !important
-  &:link, &:visited
-    color: #1689BA
+  &:visited
+    color: #355B8F
     text-decoration: none !important
   &:hover, &:active
-    color: #174559
+    color: #0A3A7C
 
 img
   max-width: 100%
@@ -120,7 +133,7 @@ html, body
   height: 100%
   width: 100%
   overflow: auto
-  font-family: "Bitter", serif
+  font-family: "Merriweather", serif
   font-size: 20px
 
 .background
@@ -167,18 +180,20 @@ html, body
       top: 2rem
       bottom: 2rem
       left: 2rem
-
-      font-size: 2.5em
       color: white
-      .desc
-        font-size: .7em
+      h1
+        margin-bottom: 0
 
     .about
       text-decoration: underline
       position: absolute
       bottom: 0
       left: 0
-      font-size: .7em
+      padding: 1em
+      font-size: 1.5em
+      background: url(../images/papers/groovepaper.png)
+      box-shadow: black 0px 5px 10px
+      -webkit-backface-visibility: hidden
 
 
 
@@ -316,6 +331,9 @@ ul.tabnav
 
 .id
   transform: rotate(9deg)
+
+.about
+  transform: rotate(-5deg)
 
 
 

@@ -1,6 +1,6 @@
 //Get Fonts
 WebFontConfig = {
-  google: { families: [ 'Bitter::latin' ] }
+  google: { families: [ 'Merriweather::latin', 'Oxygen::latin' ] }
  };
 
 (function() {
