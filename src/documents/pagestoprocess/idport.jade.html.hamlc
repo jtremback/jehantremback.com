@@ -9,4 +9,4 @@
 			%p Click on the image to see my site, or check out some of my best work in the tabs above.
 
 		.slot-3-4-5
-			%img{:src => "images/idport-s.jpg"}
+			%img{:src => "images/idport-s.png"}

@@ -7,14 +7,14 @@
 			%p I collaborated with the WBTM marketing team in Utrecht, Holland over Skype and email to develop the design. They ended up going with a design consultancy in Holland for the final production model, but since I was a second-year student at the time, this doesn't really bother me. The experience of working with a team and real user feedback was a catalyst for me to continue developing my real-world skills.
 
 		.slot-3-4-5
-			%img{:src => "images/wbtm_sketches-s.jpg"}
+			%img{:src => "images/wbtm_sketches-s.png"}
 	%hr
 	.row
 		.slot-6
-			%img{:src => "images/wbtm_model-s.jpg"}
+			%img{:src => "images/wbtm_model-s.png"}
 		.slot-7
 			%p This is the solid model I developed. From this model, molds were cut, and a prototype was made.
 		.slot-8
-			%img{:src => "images/wbtm_render-s.jpg"}
+			%img{:src => "images/wbtm_render-s.png"}
 		.slot-9
 			%p Here is a rendering of the model. Unfortunately, I lost the photos of the prototype (it's been a couple of years), but once I can get WBTM to send them back over, I will post them up.

@@ -7,5 +7,5 @@
 			%p It’s also been great to hone my WordPress skills, giving me the ability to quickly build full-featured websites that can be administered easily by the end user.
 		.slot-3-4-5
 			%a{:href => "http://www.lookgoodonthe.net"}	
-				%img{:src => "images/banqfront-s.jpg"}
+				%img{:src => "images/banqfront-s.png"}
 

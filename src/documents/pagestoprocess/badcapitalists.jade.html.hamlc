@@ -8,4 +8,4 @@
 
 		.slot-3-4-5
 			%a{:href => "http://www.unbouncepages.com/badcapitalists/"}
-				%img{:src => "images/badcapitalists-s.jpg"}
+				%img{:src => "images/badcapitalists-s.png"}

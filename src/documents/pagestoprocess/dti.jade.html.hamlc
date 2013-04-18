@@ -8,4 +8,4 @@
 			%p The app loads ebooks, PDFs, and feeds, and displays them. When the user touches and holds on the text, the RSVP window comes up and starts sequentially displaying the words. 
 			%p The user can nudge their thumb side to side to bump the speed up or down. The app adapts to the user’s favorite speed. When the thumb is released, the reading pauses. 
 		%a{:href => "http://unbouncepages.com/27f7ea38-5d97-11e0-97d1-12313e003591/"}
-			%img.slot-4-5{:src => "images/dti-s.jpg"}
+			%img.slot-4-5{:src => "images/dti-s.png"}

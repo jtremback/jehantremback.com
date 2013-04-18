@@ -1,6 +1,6 @@
 .wrapper
 	.polaroid.id
-		%img.slot-0-1{:src => "images/id-s.jpg"}
+		%img.slot-0-1{:src => "images/id-s.png"}
 		.title_bar
 			.title Industrial Design
 			.link

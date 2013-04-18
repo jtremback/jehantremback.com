@@ -13,7 +13,7 @@
 
 	.row
 		.slot-0-1-2-3-4-5
-			%img{:src => "images/expdesigner-s.jpg"}
+			%img{:src => "images/expdesigner-s.png"}
 
 	.row
 		.slot-0-1-2-3-4-5

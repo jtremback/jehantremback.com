@@ -8,13 +8,13 @@ isPage: true
   .surface
     .title
       h1 Jehan Tremback
-      h2 UI · UX · Frontend
+      h2 UI &#183; UX &#183; Frontend
       a.about(href="#jehan") About Me
 
   <% for category in @site.categories: %>
   .wrapper
     .polaroid.<%- category.id %>
-      .img(style='background: url(images/<%- category.id %>.jpg);')
+      .img(style='background: url(images/<%- category.id %>.png);')
       .title_bar
         .title <%- category.name %>
         a.link(href='#<%- category.default %>') Expand

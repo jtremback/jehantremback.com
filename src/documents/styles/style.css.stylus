@@ -233,7 +233,7 @@ html, body
     background: black
     color: black
     border-radius(8px)
-    background-image: url(../images/cover.jpg)
+    background-image: url(../images/cover.png)
     &:hover
       transform: rotate(-3deg)
       color: white

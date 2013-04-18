@@ -1,7 +1,7 @@
 %h1 About Me
 .row
 	.slot-0-1
-		%img{:src => "images/face-s.jpg"}
+		%img{:src => "images/face-s.png"}
 	.slot-2-3-4-5
 		%p I like to make things that do cool stuff. I am focused on experiences and interfaces that alter people’s lives and routines in real life. I started out in construction, studied industrial design, and then realized what I was born to do: build user interfaces and experiences.
 		%p I view interfaces differently than most designers. To me, an interface is a tool, not a pretty page layout. I believe that form should follow function. 

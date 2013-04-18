@@ -1,6 +1,6 @@
 .wrapper
 	.polaroid.webapps
-		%img.slot-0-1{:src => "images/webapps-s.jpg"}
+		%img.slot-0-1{:src => "images/webapps-s.png"}
 		.title_bar
 			.title Web Apps
 			.link

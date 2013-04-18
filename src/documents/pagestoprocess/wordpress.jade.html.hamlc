@@ -1,6 +1,6 @@
 .wrapper
 	.polaroid.wordpress
-		%img{:src => "images/wordpress-s.jpg"}
+		%img{:src => "images/wordpress-s.png"}
 		.title_bar
 			.title WordPress Sites
 			.link
