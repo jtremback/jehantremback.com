@@ -4,12 +4,6 @@ isPage: true
 ---
 
 .container
-  .background
-  .surface
-    .title
-      h1 Jehan Tremback
-      h2 UI &#183; UX &#183; Frontend
-      a.about(href="#jehan") About Me
 
   <% for category in @site.categories: %>
   .wrapper
@@ -19,10 +13,6 @@ isPage: true
         .title <%- category.name %>
         a.link(href='#<%- category.default %>') Expand
   <% end %>
-  .wrapper
-    .cover
-      .writing Look Inside
-      .drag (drag me)
 
 
 #popup
