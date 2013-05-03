@@ -4,6 +4,12 @@ isPage: true
 ---
 
 #bgfx
+  .el
+  .el
+  .el
+  .el
+  .el
+  .el
 .content
   h1.pagetitle 
     div Jehan

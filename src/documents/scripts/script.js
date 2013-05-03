@@ -67,36 +67,40 @@ var popup = (function () {
 //   }
 // })();
 
-var bgFx = (function(container) {
-  var initsize = 3;
-
-  return {
-    init: function(container) {
-      for (i = 0; i < 6; i++) {
-        var el = $(container).append('<div class="el"></div>').find('.el');
-        var hslastring = 'hsla(' 
-          + ((i * 58) + 110) + ', ' 
-          + (i * 24)
-          + '%, 50%, ' 
-          + (0.5 / (i * 0.4)) + ')';
-        console.log(el, i, hslastring);
-        el.eq(i).css({
-          // 'transform': 'rotate(' + -(i * (i * 3))+ 'deg)',
-          'left': (i * 16) - 15 + '%',
-          // 'top': (i * 10) + '%',
-          'transform': 'skew(' + (i * 10) + 'deg)',
-          'bottom': (i * (9 )) - 100 + '%',
-          'background': hslastring
-        });
-      }
-    }
+var bgFx = function(container, val1) {
+  for (i = 0; i < 6; i++) {
+    var el = $(container).find('.el').eq(i),
+        hsla = 'hsla(' 
+        + ((i * 58) + 110) + ', ' 
+        + (i * 24)
+        + '%, 50%, ' 
+        + (0.5 / (i * 0.4)) + ')',
+        skew = (i * 10) + (val1 * 9),
+        bottom = i * (9 + (val1 * 6)) - 100,
+        left = (i * 16) - 15;
+    el.css({
+      'left': left + '%',
+      'transform': 'skew(' + skew + 'deg)',
+      'bottom': bottom + '%',
+      'background': hsla
+    });
   }
-})();
+}
 
-bgFx.init($('#bgfx'))
+
+
 
 var init = function() {
-  // polaroid.init()
+  bgFx('#bgfx', 0)
+
+  $(window).scroll(function(){
+    var s = $(window).scrollTop(),
+        d = $(document).height(),
+        c = $(window).height(),
+        scrollPercent = (s / (d-c)) * 100;
+        console.log(scrollPercent / 100);
+        bgFx('#bgfx', scrollPercent / 100);
+  })
 
   //if window has a hash, run with it.
   //if not, close it.
