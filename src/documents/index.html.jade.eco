@@ -3,29 +3,30 @@ layout: "default"
 isPage: true
 ---
 
-#bgfx
-  .el
-  .el
-  .el
-  .el
-  .el
-  .el
-.content
-  h1.pagetitle 
-    div Jehan
-    div Tremback
-  h2.pagetagline UI &#183; UX &#183; Frontend
+.main
+  #bgfx
+    .el
+    .el
+    .el
+    .el
+    .el
+    .el
+  .content
+    h1.pagetitle 
+      div Jehan
+      div Tremback
+    h2.pagetagline UI &#183; UX &#183; Frontend
 
-.container
-  <% for category in @site.categories: %>
-  .polaroid.<%- category.id %>
-    .title <%- category.name %>
-    .img(style='background: url(images/<%- category.id %>.png);')
-    <!-- .card -->
-  <% end %>
+  .container
+    <% for category in @site.categories: %>
+    a(href='#<%- category.default %>')
+      .polaroid.<%- category.id %>
+        .title <%- category.name %>
+        .img(style='background: url(images/<%- category.id %>.png);')
+        <!-- .card -->
+    <% end %>
 
-
-#popup
-  .close.black
-  #content-wrapper
-    #content-holder.grid
+  #popup
+    .close.black
+    #content-wrapper
+      #content-holder.grid

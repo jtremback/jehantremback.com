@@ -45,39 +45,17 @@ var popup = (function () {
 
 })();
 
-
-// var polaroid = (function() {
-//   var wrapper = $('.wrapper'),
-//       a = 1;
-
-//   return {
-//     init : function() {
-//       wrapper.pep({
-//         start: function(event, object) {
-//           $(object.el).css("z-index", a++); 
-//         },
-//         shouldPreventDefault: true
-//       });
-
-
-//       wrapper.find('.link').on('touchend', function(event){
-//         window.location.hash = $(this).attr('href');
-//       })
-//     }
-//   }
-// })();
-
 var bgFx = function(container, val1) {
   for (i = 0; i < 6; i++) {
     var el = $(container).find('.el').eq(i),
         hsla = 'hsla(' 
         + ((i * 58) + 110) + ', ' 
         + (i * 24)
-        + '%, 50%, ' 
+        + '%, 40%, ' 
         + (0.5 / (i * 0.4)) + ')',
-        skew = (i * 10) + (val1 * 9),
-        bottom = i * (9 + (val1 * 6)) - 100,
-        left = (i * 16) - 15;
+        skew = (i * 10) + (val1 * 3),
+        bottom = i * (9 + (val1 * 3)) - 100,
+        left = (i * 16) - (15);
     el.css({
       'left': left + '%',
       'transform': 'skew(' + skew + 'deg)',
