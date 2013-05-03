@@ -72,15 +72,16 @@ var bgFx = (function(container) {
 
   return {
     init: function(container) {
-      for (i = 0; i < 5; i++) {
+      for (i = 0; i < 6; i++) {
         var el = $(container).append('<div class="el"></div>').find('.el');
-        var hslastring = 'hsla(' + ((i * 50) + 120) + ', 100%, 50%, ' + (1 / (i * 2)) + ')';
+        var hslastring = 'hsla(' + ((i * 55) + 120) + ', 100%, 50%, ' + (1 / (i * 3)) + ')';
         console.log(el, i, hslastring);
         el.eq(i).css({
-          'transform': 'rotate(' + -(i * (i * 3))+ 'deg)',
-          // 'left': (i * 4) + '%',
-          // 'transform': 'skew(' + i + 'deg)',
-          'top': (i * 20) + 0 + '%',
+          // 'transform': 'rotate(' + -(i * (i * 3))+ 'deg)',
+          'left': (i * 15) - 15 + '%',
+          // 'top': (i * 10) + '%',
+          'transform': 'skew(' + (i * 10) + 'deg)',
+          'bottom': (i * (9 )) - 100 + '%',
           'background': hslastring
         });
       }
