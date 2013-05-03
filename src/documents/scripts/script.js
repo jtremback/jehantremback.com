@@ -74,11 +74,15 @@ var bgFx = (function(container) {
     init: function(container) {
       for (i = 0; i < 6; i++) {
         var el = $(container).append('<div class="el"></div>').find('.el');
-        var hslastring = 'hsla(' + ((i * 55) + 120) + ', 100%, 50%, ' + (1 / (i * 3)) + ')';
+        var hslastring = 'hsla(' 
+          + ((i * 58) + 110) + ', ' 
+          + (i * 24)
+          + '%, 50%, ' 
+          + (0.5 / (i * 0.4)) + ')';
         console.log(el, i, hslastring);
         el.eq(i).css({
           // 'transform': 'rotate(' + -(i * (i * 3))+ 'deg)',
-          'left': (i * 15) - 15 + '%',
+          'left': (i * 16) - 15 + '%',
           // 'top': (i * 10) + '%',
           'transform': 'skew(' + (i * 10) + 'deg)',
           'bottom': (i * (9 )) - 100 + '%',
