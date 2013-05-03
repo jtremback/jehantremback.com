@@ -49,7 +49,7 @@ var bgFx = function(container, val1) {
   for (i = 0; i < 6; i++) {
     var el = $(container).find('.el').eq(i),
         hsla = 'hsla(' 
-        + ((i * 58) + 110) + ', ' 
+        + ((i * 40) + 50) + ', ' 
         + (i * 24)
         + '%, 40%, ' 
         + (0.5 / (i * 0.4)) + ')',
