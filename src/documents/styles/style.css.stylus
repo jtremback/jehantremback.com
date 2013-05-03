@@ -136,24 +136,13 @@ html, body
   font-family: "Source Sans Pro", sans
   font-size: 20px
 
-.main
-  width: 200%
-
-.fixedcontent
-  padding: 2em
-  position: fixed
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
-
 #bgfx
   background: #fafafa
   background-image: -webkit-linear-gradient(top, #fff, #eaeaea)
   background-image: -moz-linear-gradient(top, #fff, #eaeaea)
   background-image: -ms-linear-gradient(top, #fff, #eaeaea)
   background-image: -o-linear-gradient(top, #fff, #eaeaea)
-  position: absolute
+  position: fixed
   top: 0
   bottom: 0
   left: 0
@@ -163,23 +152,37 @@ html, body
     position: absolute
     height: 100%
 
-.pagetitle
-  display: block
-  font-size: 5em
-  line-height: .9
-  margin-bottom: .15em
-  padding-bottom: .15em
-  // background: #aaa
-  border-bottom: bottomborder
 
-.pagetagline
-  display: block
-  font-size: 2.5em
-  line-height: 1
-  // border-bottom: bottomborder
+#index
+  &.hidden {
+    display: none
+  }
+
+.fixedcontent
+  padding: 2em
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
+  .pagetitle
+    display: block
+    font-size: 5em
+    line-height: .9
+    margin-bottom: .15em
+    padding-bottom: .15em
+    // background: #aaa
+    border-bottom: bottomborder
+
+  .pagetagline
+    display: block
+    font-size: 2.5em
+    line-height: 1
+    // border-bottom: bottomborder
 
 //POLAROIDS
-.polaroidindex
+.polaroids
   position: absolute
   top: 50%
   margin-right: 3em
@@ -189,6 +192,7 @@ html, body
     right: auto
     left: -26em
   }
+
 .polaroid
   box-sizing: auto
   margin-bottom: 3em
@@ -210,16 +214,8 @@ html, body
 
 
 //POPUP
-#popup
-  right:
-
-  .black
-    position: fixed
-    top: 0
-    bottom: 0
-    left: 0
-    right: 0
-    background: rgba(0, 0, 0, 0.5)
+#content
+  display: none
 
   #content-wrapper
       width: 100%
@@ -228,12 +224,8 @@ html, body
     #content-holder
       margin-left: auto
       margin-right: auto
-      background: url(../images/papers/groovepaper.png)
+      background: white
       padding: 1em
-
-  #content
-    margin-bottom: 4em
-    margin-top: 4em
 
   &.shown
     display: block

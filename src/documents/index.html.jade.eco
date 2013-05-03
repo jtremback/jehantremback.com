@@ -3,21 +3,23 @@ layout: "default"
 isPage: true
 ---
 
-.main
-  #bgfx
-    .el
-    .el
-    .el
-    .el
-    .el
-    .el
+
+#bgfx
+  .el
+  .el
+  .el
+  .el
+  .el
+  .el
+
+#index
   .fixedcontent
     h1.pagetitle 
       div Jehan
       div Tremback
     h2.pagetagline UI &#183; UX &#183; Frontend
 
-  .polaroidindex
+  .polaroids
     <% for project in @site.projects: %>
     a(href='#<%- project.slug %>')
       .polaroid
@@ -25,7 +27,6 @@ isPage: true
         .img(style='background: url(images/<%- project.frontpic %>.png);')
     <% end %>
 
-  #popup
-    .close.black
-    #content-wrapper
-      #content-holder.grid
+#content
+  #content-wrapper
+    #content-holder.grid

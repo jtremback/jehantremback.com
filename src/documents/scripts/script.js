@@ -18,10 +18,11 @@ WebFontConfig = {
 //Group everything having to do with popup content window together
 var popup = (function () {
   //Assign elements to nice vars
-  var el = $('#popup'),
-      closer = $('#popup').find('.close'),
-      holder = $('#popup').find('#content-holder'),
-      prePath = 'content/';
+  var content = $('#content'),
+      index = $('#index'),
+      holder = $('#content-holder'),
+      prePath = 'content/',
+      scrollPos;
 
   return {
     //read url and get corresponding data
@@ -33,18 +34,26 @@ var popup = (function () {
         holder.html(content);
       }, 'text');
 
+
+      //hide the index
+      index.addClass('hidden');
+      
       //show the popup
-      el.addClass('shown');
+      content.addClass('shown');
     },
 
-    //hide the popup
     close : function() {
-      el.removeClass('shown');
+      //hide the popup
+      content.removeClass('shown');
+
+      //show the index
+      index.removeClass('hidden')
     }
   };
 
 })();
 
+//Keyed on index and scroll to provide crazy fx for bg
 var bgFx = function(container, val1) {
   for (i = 0; i < 6; i++) {
     var el = $(container).find('.el').eq(i),
