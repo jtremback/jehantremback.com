@@ -1,3 +1,5 @@
+import("magnific.css")
+
 //MIXINS ETC
 vendor(prop, args)
   -webkit-{prop} args
@@ -134,7 +136,10 @@ html, body
   font-family: "Source Sans Pro", sans
   font-size: 20px
 
-.content
+.main
+  width: 200%
+
+.fixedcontent
   padding: 2em
   position: fixed
   top: 0
@@ -144,11 +149,11 @@ html, body
 
 #bgfx
   background: #fafafa
-  background-image: -webkit-linear-gradient(top, #fff, #eee)
-  background-image: -moz-linear-gradient(top, #fff, #eee)
-  background-image: -ms-linear-gradient(top, #fff, #eee)
-  background-image: -o-linear-gradient(top, #fff, #eee)
-  position: fixed
+  background-image: -webkit-linear-gradient(top, #fff, #eaeaea)
+  background-image: -moz-linear-gradient(top, #fff, #eaeaea)
+  background-image: -ms-linear-gradient(top, #fff, #eaeaea)
+  background-image: -o-linear-gradient(top, #fff, #eaeaea)
+  position: absolute
   top: 0
   bottom: 0
   left: 0
@@ -174,11 +179,16 @@ html, body
   // border-bottom: bottomborder
 
 //POLAROIDS
-.container
+.polaroidindex
   position: absolute
   top: 50%
-  right: 3em
+  margin-right: 3em
+  right: 0em
   width: 25em
+  &.hidden {
+    right: auto
+    left: -26em
+  }
 .polaroid
   box-sizing: auto
   margin-bottom: 3em
@@ -194,13 +204,14 @@ html, body
   .img
     width: 100%
     padding-top: 100%
+    box-shadow: inset 0px -1px 5px rgba(0, 0, 0, .1)
     background-size: cover
 
 
 
 //POPUP
 #popup
-  display: none
+  right:
 
   .black
     position: fixed
@@ -285,4 +296,3 @@ ul.tabnav
     font-size: 1.75em
     top: 120px
     right: 50px
-

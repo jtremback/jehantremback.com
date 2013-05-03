@@ -29,7 +29,28 @@ docpadConfig = {
         id: "id",
         name: "Industrial",
         default: "wbtm"
+      ]
+
+      projects: [
+        slug: "hypothesis",
+        name: "Hypothesis",
+        frontpic: "hypothesis_main"
       ,
+        slug: "scope",
+        name: "Scope",
+        frontpic: "scope_main"
+      ,
+        slug: "chronometer",
+        name: "Chronometer",
+        frontpic: "chronometer_main"
+      ,
+        slug: "expdesigner",
+        name: "Expression Designer",
+        frontpic: "expdesigner_main"
+      ,
+        slug: "hactus",
+        name: "Hactus",
+        frontpic: "hactus_main"
       ]
 
 

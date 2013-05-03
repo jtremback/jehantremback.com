@@ -1,27 +1,2 @@
-<ul class="tabnav cf">
-  <% for page in this.getPagesByCategory("#{@document.category}").toJSON():  %>
-  <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
-    <a href="#<%= page.basename %>">
-      <%= page.title %>
-    </a>
-  </li>
-  <% end %>
-  <li class="close closer">
-    <a href='#'>Close</a>
-  </li>
-</ul>
+<%- @content %>
 
-<div id="content"><%- @content %></div>
-
-<ul class="tabnav cf">
-  <% for page in this.getPagesByCategory("#{@document.category}").toJSON():  %>
-  <li class="<%= if page.id is @document.id then 'active' else 'inactive' %>">
-    <a href="#<%= page.basename %>">
-      <%= page.title %>
-    </a>
-  </li>
-  <% end %>
-  <li class="close closer">
-    <a href='#'>Close</a>
-  </li>
-</ul>

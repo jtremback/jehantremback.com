@@ -11,19 +11,18 @@ isPage: true
     .el
     .el
     .el
-  .content
+  .fixedcontent
     h1.pagetitle 
       div Jehan
       div Tremback
     h2.pagetagline UI &#183; UX &#183; Frontend
 
-  .container
-    <% for category in @site.categories: %>
-    a(href='#<%- category.default %>')
-      .polaroid.<%- category.id %>
-        .title <%- category.name %>
-        .img(style='background: url(images/<%- category.id %>.png);')
-        <!-- .card -->
+  .polaroidindex
+    <% for project in @site.projects: %>
+    a(href='#<%- project.slug %>')
+      .polaroid
+        .title <%- project.name %>
+        .img(style='background: url(images/<%- project.frontpic %>.png);')
     <% end %>
 
   #popup

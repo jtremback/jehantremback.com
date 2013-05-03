@@ -49,12 +49,12 @@ var bgFx = function(container, val1) {
   for (i = 0; i < 6; i++) {
     var el = $(container).find('.el').eq(i),
         hsla = 'hsla(' 
-        + ((i * 40) + 50) + ', ' 
+        + ((i * 40) + 0) + ', ' 
         + (i * 24)
         + '%, 40%, ' 
         + (0.5 / (i * 0.4)) + ')',
         skew = (i * 10) + (val1 * 3),
-        bottom = i * (9 + (val1 * 3)) - 100,
+        bottom = i * (13 - (i - (val1 * 4))) - 100,
         left = (i * 16) - (15);
     el.css({
       'left': left + '%',
