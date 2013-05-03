@@ -14,21 +14,22 @@ docpadConfig = {
       title: "Jehan's Portfolio"
 
       categories: [
-        id: "id",
-        name: "Industrial",
-        default: "wbtm"
-      ,
-        id: "web_sites"
-        name: "Web Sites"
-        default: "eddan"
+        id: "web_apps"
+        name: "Web Apps"
+        default: "hypothesis"
       ,
         id: "mobile_apps",
         name: "Mobile Apps",
         default: "scope"
       ,
-        id: "web_apps"
-        name: "Web Apps"
-        default: "hypothesis"
+        id: "web_sites"
+        name: "Web Sites"
+        default: "eddan"
+      ,
+        id: "id",
+        name: "Industrial",
+        default: "wbtm"
+      ,
       ]
 
 

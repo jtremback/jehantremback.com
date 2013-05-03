@@ -1,6 +1,6 @@
 //Get Fonts
 WebFontConfig = {
-  google: { families: [ 'Merriweather::latin', 'Oxygen::latin' ] }
+  google: { families: [ 'Source+Sans+Pro::latin' ] }
  };
 
 (function() {
@@ -46,31 +46,48 @@ var popup = (function () {
 })();
 
 
-var polaroid = (function() {
-  var wrapper = $('.wrapper'),
-      a = 1;
+// var polaroid = (function() {
+//   var wrapper = $('.wrapper'),
+//       a = 1;
+
+//   return {
+//     init : function() {
+//       wrapper.pep({
+//         start: function(event, object) {
+//           $(object.el).css("z-index", a++); 
+//         },
+//         shouldPreventDefault: true
+//       });
+
+
+//       wrapper.find('.link').on('touchend', function(event){
+//         window.location.hash = $(this).attr('href');
+//       })
+//     }
+//   }
+// })();
+
+var bgFx = (function(container) {
+  var initsize = 3;
 
   return {
-    init : function() {
-      wrapper.pep({
-        start: function(event, object) {
-          $(object.el).css("z-index", a++); 
-        },
-        shouldPreventDefault: true
-      });
-
-
-      wrapper.find('.link').on('touchend', function(event){
-        window.location.hash = $(this).attr('href');
-      })
+    init: function(container) {
+      for (i = 0; i < 4; i++) {
+        var el = $(container).append('<div class="el"></div>').find('.el');
+        console.log(el, i);
+        el.eq(i).css({
+          'transform': 'rotate(' + -(i * (i * 4))+ 'deg)',
+          'right': i + 'em'
+        });
+      }
     }
   }
 })();
 
-
+bgFx.init($('#bgfx'))
 
 var init = function() {
-  polaroid.init()
+  // polaroid.init()
 
   //if window has a hash, run with it.
   //if not, close it.

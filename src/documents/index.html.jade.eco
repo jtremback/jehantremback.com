@@ -3,15 +3,19 @@ layout: "default"
 isPage: true
 ---
 
-.container
+#bgfx
+.content
+  h1.pagetitle 
+    div Jehan
+    div Tremback
+  h2.pagetagline UI &#183; UX &#183; Frontend
 
+.container
   <% for category in @site.categories: %>
-  .wrapper
-    .polaroid.<%- category.id %>
-      .img(style='background: url(images/<%- category.id %>.png);')
-      .title_bar
-        .title <%- category.name %>
-        a.link(href='#<%- category.default %>') Expand
+  .polaroid.<%- category.id %>
+    .title <%- category.name %>
+    .img(style='background: url(images/<%- category.id %>.png);')
+    <!-- .card -->
   <% end %>
 
 

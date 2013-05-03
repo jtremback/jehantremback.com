@@ -21,6 +21,7 @@ box-sizing()
   vendor('box-sizing', arguments)
 
 transpblack = rgba(0, 0, 0, .8)
+bottomborder = .08em solid black
 
 .cf
   &:before, :after
@@ -88,7 +89,6 @@ hr
   background-image: -o-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
 
 h1, h2, h3, h4, h5, h6
-  font-family: "Oxygen" !important
   margin-bottom: .5em
 
 h1
@@ -133,130 +133,68 @@ html, body
   height: 100%
   width: 100%
   overflow: auto
-  font-family: "Merriweather", serif
+  font-family: "Source Sans Pro", sans
   font-size: 20px
 
-.background
-  background-image: url(../images/backgrounds/barksky.gif)
-  background-size: cover
-  background-position: bottom right
-  position: absolute
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
-
-.container
+.content
+  padding: 2em
   position: fixed
   top: 0
   bottom: 0
   left: 0
   right: 0
 
-  .surface
-    position: absolute
+#bgfx
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  .el
     width: 100%
-    top: 10%
-    bottom: 10%
-    left: 0
-    right: 0
-    background: rgba(0, 0, 0, 0.5)
+    opacity: .3
+    background: #aaa 
+    position: absolute
+    bottom: 0
+    height: 20%
 
-    /* Safari 5.1+, Mobile Safari, Chrome 10+ */
-    background-image: -webkit-linear-gradient(left top, rgba(0, 0, 0, 0.5), rgba(68, 51, 51, 0.1) 50%, hsla(190deg, 50%, 95%, .1)  50%, rgba(255, 255, 255, 0.5)); 
+.pagetitle
+  display: block
+  font-size: 5em
+  line-height: .9
+  font-weight: bold;
+  margin-bottom: .2em
+  // background: #aaa
+  border-bottom: bottomborder
 
-    /* Firefox 3.6+ */
-    background-image: -moz-linear-gradient(left top, rgba(0, 0, 0, 0.5), rgba(68, 51, 51, 0.5) 50%, hsla(190deg, 50%, 95%, .3)  50%, rgba(255, 255, 255, 0.5));
-    
-    /* IE 10+ */
-    background-image: -ms-linear-gradient(left top, rgba(0, 0, 0, 0.5), rgba(68, 51, 51, 0.5) 50%, hsla(190deg, 50%, 95%, .3)  50%, rgba(255, 255, 255, 0.5));
-
-    border-top: 1px solid #000
-    border-bottom: 1px solid #aaa
-    box-shadow(hsla(0deg, 0%, 0%, 1) 0px 10px 0px)
-
-    .title
-      position: absolute
-      top: 2rem
-      bottom: 2rem
-      left: 2rem
-      color: white
-      h1
-        margin-bottom: 0
-
-    .about
-      text-decoration: underline
-      position: absolute
-      bottom: 0
-      left: 0
-      padding: 1em
-      font-size: 1.5em
-      background: url(../images/papers/groovepaper.png)
-      box-shadow: black 0px 5px 10px
-      -webkit-backface-visibility: hidden
-
-
-
-
+.pagetagline
+  display: block
+  font-size: 2em
+  line-height: 1
+  // border-bottom: bottomborder
 
 //POLAROIDS
-.wrapper
-  width: 11em
+.container
   position: absolute
-  .polaroid
-    background: url(../images/papers/groovepaper.png)
-    box-sizing: auto
+  top: 50%
+  right: 3em
+  width: 25em
+.polaroid
+  box-sizing: auto
+  margin-bottom: 3em
+  -webkit-backface-visibility: hidden
+  font-size: 2em
+  background: white
+  padding-left: .5em
+  padding-top: .5em
+  .title
+    border-bottom: bottomborder
+    margin-bottom: .5em
+  .img
     width: 100%
-    padding: .7em
-    padding-bottom: 1.4em
-    box-shadow: black 0px 5px 10px
-    cursor: move
-    -webkit-backface-visibility: hidden
-    .img
-      width: 100%
-      padding-top: 100%
-      border: 1px solid #888
-      box-shadow: inset rgba(0, 0, 0, .3) 0px 0px 10px
-      background-size: cover
-
-    .title_bar
-      width: 100%
-      font-size: .8em
-      padding-top: .5em
-      .title
-        float: left
-      .link
-        float: right
-
-  .cover
     padding-top: 100%
-    background: black
-    color: black
-    border-radius(8px)
-    background-image: url(../images/cover.png)
-    &:hover
-      transform: rotate(-3deg)
-      color: white
-    &:active
-      transform: rotate(-3deg)
-      color: white
-    .writing
-      position: absolute
-      top: 1em
-      left: 1em
-      color: white
-    .drag
-      position: absolute
-      bottom: 1em
-      right: 1em
-      color: white
+    background-size: cover
 
-  &.top
-    z-index: 2
-
-
-//COVER
-  
 
 
 //POPUP
@@ -313,32 +251,10 @@ ul.tabnav
         color: #c65549
         &:hover
           color: #8f3c2d
-  
-
-
-//ROTATIONS
-.cover
-  transform: rotate(2deg)
-
-.web_apps
-  transform: rotate(-7deg)
-
-.mobile_apps
-  transform: rotate(4deg)
-
-.web_sites
-  transform: rotate(-2deg)
-
-.id
-  transform: rotate(9deg)
-
-.about
-  transform: rotate(-5deg)
 
 
 
 //MEDIA QUERIES
-
 @media screen and (max-width: 720px)
   .nonmobile
     display: none
