@@ -72,12 +72,16 @@ var bgFx = (function(container) {
 
   return {
     init: function(container) {
-      for (i = 0; i < 4; i++) {
+      for (i = 0; i < 5; i++) {
         var el = $(container).append('<div class="el"></div>').find('.el');
-        console.log(el, i);
+        var hslastring = 'hsla(' + ((i * 50) + 120) + ', 100%, 50%, ' + (1 / (i * 2)) + ')';
+        console.log(el, i, hslastring);
         el.eq(i).css({
-          'transform': 'rotate(' + -(i * (i * 4))+ 'deg)',
-          'right': i + 'em'
+          'transform': 'rotate(' + -(i * (i * 3))+ 'deg)',
+          // 'left': (i * 4) + '%',
+          // 'transform': 'skew(' + i + 'deg)',
+          'top': (i * 20) + 0 + '%',
+          'background': hslastring
         });
       }
     }

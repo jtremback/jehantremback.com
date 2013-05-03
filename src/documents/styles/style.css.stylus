@@ -152,11 +152,8 @@ html, body
   right: 0
   .el
     width: 100%
-    opacity: .3
-    background: #aaa 
     position: absolute
-    bottom: 0
-    height: 20%
+    height: 100%
 
 .pagetitle
   display: block
