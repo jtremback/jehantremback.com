@@ -26,7 +26,7 @@ var popup = (function () {
 
   return {
     //read url and get corresponding data
-    open : function(page) {
+    open: function(page) {
       var urlFrag = page.replace('#','');
 
       // Fetch page content
@@ -44,14 +44,16 @@ var popup = (function () {
       content.addClass('shown');
     },
 
-    close : function() {
-      $(window).scrollTop(scrollPos)
+    close: function() {
 
       //hide the popup
       content.removeClass('shown');
 
       //show the index
       index.removeClass('hidden')
+
+      //set scroll back to former
+      $(window).scrollTop(scrollPos)
     }
   };
 
@@ -89,7 +91,6 @@ var init = function() {
         d = $(document).height(),
         c = $(window).height(),
         scrollPercent = (s / (d-c)) * 100;
-        console.log(scrollPercent / 100);
         bgFx('#bgfx', scrollPercent / 100);
   })
 
@@ -105,6 +106,14 @@ var init = function() {
 
   //run on start
   hashProc();
+
+  $('#content').on('click', function () {
+    window.location.hash = '';
+  })
+
+  $('#content-holder').on('click', function (e) {
+    e.stopPropagation();
+  })
 
   //respond to hash changes w/out reloads
   $(window).on('hashchange', function() {

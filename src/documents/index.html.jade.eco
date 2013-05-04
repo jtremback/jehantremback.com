@@ -21,12 +21,11 @@ isPage: true
 
   .polaroids
     <% for project in @site.projects: %>
-    a(href='#<%- project.slug %>')
+    a.repl_hash(href='#<%- project.slug %>')
       .polaroid
         .title <%- project.name %>
         .img(style='background: url(images/<%- project.frontpic %>.png);')
     <% end %>
 
 #content
-  #content-wrapper
-    #content-holder.grid
+  #content-holder.grid
