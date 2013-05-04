@@ -3,11 +3,11 @@
 		<title><%= @getPreparedTitle() %></title>
 		<%- @getBlock("meta").toHTML() %>
 		<%- @getBlock("styles").add(["styles/style.css"]).toHTML() %>
-		
+	<!-- 	
 		<link href="styles/720_grid.css" media="screen and (min-width: 720px)" rel="stylesheet" type="text/css" />
 
 		<link href="styles/986_grid.css" media="screen and (min-width: 986px)" rel="stylesheet" type="text/css" />
-	
+	 -->
 	</head>
 	<body>
 		<%- @content %>

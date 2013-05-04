@@ -83,16 +83,15 @@ strong
 
 hr
   margin: 1em 0
-  height: 1px
+  height: .2em
   border: none
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
-  background-image: -ms-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, .2), rgba(0, 0, 0, .9), rgba(0, 0, 0, .2))
+  background: black
 
 h1, h2, h3, h4, h5, h6
   margin-bottom: .5em
   font-weight: bold
+  border-bottom: bottomborder
+
 
 h1
   font-size: 3em
@@ -172,14 +171,12 @@ html, body
     line-height: .9
     margin-bottom: .15em
     padding-bottom: .15em
-    // background: #aaa
-    border-bottom: bottomborder
 
   .pagetagline
     display: block
     font-size: 2.5em
     line-height: 1
-    // border-bottom: bottomborder
+    border-bottom: none
 
 //POLAROIDS
 .polaroids
@@ -197,14 +194,11 @@ html, body
   box-sizing: auto
   margin-bottom: 3em
   -webkit-backface-visibility: hidden
-  font-size: 2em
   color: black
   background: white
   padding: .5em
   .title
     border-bottom: bottomborder
-    margin-bottom: .5em
-    font-weight: bold
   .img
     width: 100%
     padding-top: 100%

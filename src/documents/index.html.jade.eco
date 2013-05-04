@@ -23,7 +23,7 @@ isPage: true
     <% for project in @site.projects: %>
     a.repl_hash(href='#<%- project.slug %>')
       .polaroid
-        .title <%- project.name %>
+        h2.title <%- project.name %>
         .img(style='background: url(images/<%- project.frontpic %>.png);')
     <% end %>
 
