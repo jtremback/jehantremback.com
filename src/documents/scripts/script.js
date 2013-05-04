@@ -34,15 +34,19 @@ var popup = (function () {
         holder.html(content);
       }, 'text');
 
+      scrollPos = $(window).scrollTop();
+      $(window).scrollTop(0);
 
       //hide the index
       index.addClass('hidden');
-      
+
       //show the popup
       content.addClass('shown');
     },
 
     close : function() {
+      $(window).scrollTop(scrollPos)
+
       //hide the popup
       content.removeClass('shown');
 
