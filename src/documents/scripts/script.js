@@ -24,6 +24,8 @@ var popup = (function () {
       prePath = 'content/',
       scrollPos;
 
+
+
   return {
     //read url and get corresponding data
     open: function(page) {
@@ -32,8 +34,12 @@ var popup = (function () {
       // Fetch page content
       $.get(prePath + urlFrag + '.html', function(content) {
         holder.html(content);
+
+        //Not going to bother using callbacks now
+        zoomNpan($(".zoom"))
       }, 'text');
 
+      //Store scroll info for later
       scrollPos = $(window).scrollTop();
       $(window).scrollTop(0);
 
@@ -49,6 +55,9 @@ var popup = (function () {
       //hide the popup
       content.removeClass('shown');
 
+      //Remove content
+      holder.empty();
+
       //show the index
       index.removeClass('hidden')
 
@@ -56,7 +65,6 @@ var popup = (function () {
       $(window).scrollTop(scrollPos)
     }
   };
-
 })();
 
 //Keyed on index and scroll to provide crazy fx for bg
@@ -81,7 +89,11 @@ var bgFx = function(container, val1) {
 }
 
 
+var zoomNpan = function(zoom) {
+  zoom.append('<i class="icon-zoom-in"></i>')
+}
 
+zoomNpan($(".zoom"))
 
 var init = function() {
   bgFx('#bgfx', 0)

@@ -3,14 +3,15 @@
 		<title><%= @getPreparedTitle() %></title>
 		<%- @getBlock("meta").toHTML() %>
 		<%- @getBlock("styles").add(["styles/style.css", "styles/simplegrid.css"]).toHTML() %>
-	<!-- 	
-		<link href="styles/720_grid.css" media="screen and (min-width: 720px)" rel="stylesheet" type="text/css" />
-
-		<link href="styles/986_grid.css" media="screen and (min-width: 986px)" rel="stylesheet" type="text/css" />
-	 -->
+	
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet"/>
+	
+	<!--Le HTML5 shim, for IE6-8 support of HTML5 elements--><!--if lt IE 9-->
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	
 	</head>
 	<body>
 		<%- @content %>
-		<%- @getBlock("scripts").add(["vendor/jquery191.js", "vendor/underscore.js", "vendor/magnific.js", "vendor/pep.js", "scripts/script.js"]).toHTML() %>
+		<%- @getBlock("scripts").add(["vendor/jquery191.js", "vendor/underscore.js", "vendor/pep.js", "scripts/script.js"]).toHTML() %>
 	</body>
 </html>

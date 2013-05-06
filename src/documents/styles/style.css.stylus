@@ -117,7 +117,6 @@ a
 
 img
   max-width: 100%
-  border: 1px solid #888
 
 .row
   margin-bottom: 1em
@@ -202,7 +201,6 @@ html, body
     padding-top: 100%
     box-shadow: inset 0px -1px 5px rgba(0, 0, 0, .1)
     background-size: cover
-
 
 
 //POPUP
