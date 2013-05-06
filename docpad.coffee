@@ -34,7 +34,7 @@ docpadConfig = {
       projects: [
         slug: "hypothesis",
         name: "Hypothesis",
-        frontpic: "hypothesis_main"
+        frontpic: "hyp_main"
       ,
         slug: "scope",
         name: "Scope",
@@ -48,9 +48,9 @@ docpadConfig = {
         name: "Expression Designer",
         frontpic: "expdesigner_main"
       ,
-        slug: "hactus",
-        name: "Hactus",
-        frontpic: "hactus_main"
+        slug: "sites",
+        name: "Web Sites",
+        frontpic: "sites_main"
       ]
 
 

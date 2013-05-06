@@ -1,5 +1,3 @@
-import("magnific.css")
-
 //MIXINS ETC
 vendor(prop, args)
   -webkit-{prop} args
