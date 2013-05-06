@@ -90,10 +90,30 @@ var bgFx = function(container, val1) {
 
 
 var zoomNpan = function(zoom) {
-  zoom.append('<i class="icon-zoom-in"></i>')
-}
+  zoom.append('<div class="toggle"><i class="icon-zoom-in z_in"></i><i class="icon-zoom-out z_out"></i></div>'),
+  toggle = zoom.find('.toggle'),
+  z_in = zoom.find('.z_in'),
+  z_out = zoom.find('.z_out'),
+  img = zoom.find('img');
 
-zoomNpan($(".zoom"))
+  z_in.on('click', function(e) {
+    //Set zoom el height to avoid collapse
+    var height = img.height();
+    zoom.height(height);
+    
+    zoom.addClass('zoomed');
+    $.pep.toggleAll(true);
+    //Restore abs pos
+    img.css('position', 'absolute').pep();
+  });
+
+  z_out.on('click', function(e) {
+    zoom.removeClass('zoomed');
+    //Remove abs pos
+    img.css('position', 'static');
+    $.pep.toggleAll(false);
+  });
+}
 
 var init = function() {
   bgFx('#bgfx', 0)
