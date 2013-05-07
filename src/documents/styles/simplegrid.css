@@ -125,7 +125,7 @@ body {
 	width: 58.33%
 }
 
-@media handheld, only screen and (max-width: 500px) {
+@media handheld, only screen and (max-width: 767px) {
 
 
 	.grid {

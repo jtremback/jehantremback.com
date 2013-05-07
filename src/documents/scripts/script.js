@@ -98,11 +98,12 @@ var zoomNpan = function(zoom) {
 
   z_in.on('click', function(e) {
     //Set zoom el height to avoid collapse
-    var height = img.height();
-    zoom.height(height);
-    
+    var small_height = img.height();
+
+    zoom.height(small_height);
     zoom.addClass('zoomed');
     $.pep.toggleAll(true);
+
     //Restore abs pos
     img.css('position', 'absolute').pep();
   });

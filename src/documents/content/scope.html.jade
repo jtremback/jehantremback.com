@@ -4,31 +4,23 @@ layout: "tab"
 category: "mobile_apps"
 ---
 
-h1 Scope
-.row
-  .slot-0-1-2-3-4-5
-    p
-      | Scope is an app designed to help people get the most out of conferences and other events. It allows users to view the event program on their phones and select the talks they are interested in. I tried to focus on minimalism in this design.
-    p
-      | The entire interface is coded in haml and sass, allowing it to be deployed in a Rails app. The plan from there is to offer it to conferences as a service. We enter their schedule into the database, their attendees use the app, we get paid.
-    p
-      | Fun fact: this design uses no images, for fast loading. All visual effects are accomplished with css3.
-.row
-  .slot-0-1
-    img(src='images/scope_prog.png')
-  .slot-2-3-4-5
-    p
-      | This is the “Event Program” screen. Here, talks and events are organized by category or theme, allowing the user to browse and select talks that they are interested in. When a talk is selected, it is added to the corresponding timeslot in the user’s itinerary. If they have already selected a talk or event in that timeslot, a dialogue pops up asking them if they want to replace it.
-.row
-  .slot-0-1-2-3
-    p
-      | This is the “Your Schedule” screen. It shows the user the talks they have scheduled. Touching “Select” on a talk takes the user to the corresponding timeslot screen. In empty slots, the user can leave themselves notes about other appointments.
-  .slot-4-5
-    img(src='images/scope_sched.png')
-.row
-  .slot-0-1
-    img(src='images/scope_slot.png')
-  .slot-2-3-4-5
-    p
-      | This is the “Timeslot” screen. The user arrives here after touching “Select” in the “Your Schedule” screen. The “Timeslot” screen shows all the talks and events that are going on simultaneously. This gives the user an easy way to decide what they want to do at any given time.
-  .slot-2-3-4-5
+.zoom
+  img(src='images/scoperenders.jpg')
+
+.col-1-2
+  p.
+    See the <a>wireframes</a>
+  p.
+    Scope is an app designed to help people get the most out of conferences and other events. It allows users to view the event program on their phones and select the talks they are interested in. I focused on minimalism in this design.
+
+.col-1-2    
+  p.
+    The entire interface is coded in haml and sass, allowing it to be deployed in a Rails app. The plan from there was to offer it to conferences as a service. We enter their schedule into the database, their attendees use the app, we get paid.
+  p.
+    Fun fact: this design uses no images, for fast loading. All visual effects are accomplished with css3.
+//- p
+//-   | This is the “Event Program” screen. Here, talks and events are organized by category or theme, allowing the user to browse and select talks that they are interested in. When a talk is selected, it is added to the corresponding timeslot in the user’s itinerary. If they have already selected a talk or event in that timeslot, a dialogue pops up asking them if they want to replace it.
+//- p
+//-   | This is the “Your Schedule” screen. It shows the user the talks they have scheduled. Touching “Select” on a talk takes the user to the corresponding timeslot screen. In empty slots, the user can leave themselves notes about other appointments.
+//- p
+//-   | This is the “Timeslot” screen. The user arrives here after touching “Select” in the “Your Schedule” screen. The “Timeslot” screen shows all the talks and events that are going on simultaneously. This gives the user an easy way to decide what they want to do at any given time.

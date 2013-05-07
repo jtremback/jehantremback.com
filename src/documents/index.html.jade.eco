@@ -14,18 +14,20 @@ isPage: true
 
 #index
   .fixedcontent
-    h1.pagetitle 
+    a(href="#jehan")
+      h2.about.mid About
+    h1.major 
       div Jehan
       div Tremback
-    h2.pagetagline UI &#183; UX &#183; Frontend
+    h2.mid UI &#183; UX &#183; Frontend
 
   .polaroids
     <% for project in @site.projects: %>
     a.repl_hash(href='#<%- project.slug %>')
       .polaroid
         h2.title <%- project.name %>
-        .img(style='background: url(images/<%- project.frontpic %>.png);')
+        img(src='images/<%- project.frontpic %>.png')
     <% end %>
 
 #content
-  #content-holder.grid
+  #content-holder.grid.grid-pad
