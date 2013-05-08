@@ -30,4 +30,4 @@ isPage: true
     <% end %>
 
 #content
-  #content-holder.grid.grid-pad
+  #content-holder.grid
