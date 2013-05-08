@@ -100,7 +100,7 @@ table
   border-spacing: 0
 
 strong
-  font-weight: bold
+  font-weight: 700
 
 hr
   margin: 1em 0
@@ -110,7 +110,7 @@ hr
 
 h1, h2, h3, h4, h5, h6
   margin-bottom: .5em
-  font-weight: bold
+  font-weight: 700
   border-bottom: bottomborder
 
 
@@ -274,34 +274,3 @@ html, body
     .z_out
       display: block
 
-
-//MEDIA QUERIES
-@media screen and (max-width: 720px)
-  .nonmobile
-    display: none
-
-  .mobile
-    display: block
-    
-  .wrapper
-    font-size: 1.5em
-    top: 200px
-    left: 50px
-
-@media screen and (min-width: 720px)
-  .nonmobile
-    display: block
-
-  .mobile
-    display: none
-
-  .wrapper
-    font-size: 1.5em
-    top: 120px
-    right: 50px
-    
-@media screen and (min-width: 986px)
-  .wrapper
-    font-size: 1.75em
-    top: 120px
-    right: 50px

@@ -1,6 +1,6 @@
 //Get Fonts
 WebFontConfig = {
-  google: { families: [ 'Source+Sans+Pro::latin' ] }
+  google: { families: [ 'Source+Sans+Pro:400,700:latin' ] }
  };
 
 (function() {
