@@ -1,0 +1,150 @@
+@import "variables"
+
+gutter = 25px
+
+page-width = 1024px
+
+number-of-columns = 12
+
+
+
+tablet = 767px
+phone = 480px
+
+under-tablet = "screen and (max-width: " + tablet + ")"
+under-phone  = "screen and (max-width: " + phone + ")"
+
+over-tablet = "screen and (min-width: " + tablet + ")"
+over-phone  = "screen and (min-width: " + phone + ")"
+
+only-tablet = "screen and (max-width: " + tablet + ") and (min-width: " + phone + ")"
+
+
+
+clearfix()
+	&:after
+		content ""
+		display table
+		clear both
+
+
+*, *:after, *:before 
+	box-sizing border-box
+
+.cf
+	clearfix()
+
+//calculates the width and max-width given the intended number of columns.
+col-width(num)
+	one-col-width = 100% / number-of-columns
+	one-col-max-width = page-width / number-of-columns
+	width one-col-width * num
+	max-width one-col-max-width * num
+
+//iteratively creates the proper classes for use in html.
+for num in 1..number-of-columns
+	.col-{num}-{number-of-columns}
+		col-width(num)
+
+
+center()
+	float none
+	margin-left auto
+	margin-right auto
+	
+no-gutter()
+	padding-left 0
+	padding-right 0
+
+dbl-gutter()
+	padding-right gutter
+	padding-left gutter
+
+
+
+inner-b-gutter()
+	> *
+		padding-bottom gutter
+
+b-gutter()
+	padding-bottom gutter
+
+t-gutter()
+	padding-top gutter
+
+col(num, wrap)
+	padding-right gutter * .5
+	padding-left gutter * .5
+	float left
+	clearfix()
+
+	if num is a 'unit'
+		col-width(num)
+
+	if wrap is a 'string'
+		for arg in arguments
+			&.{wrap}{arg}
+				arg()
+
+	else
+		for arg in arguments
+			arg()
+
+
+[class*='col-']
+	col(wrap: '', center, inner-b-gutter, dbl-gutter, no-gutter, b-gutter, t-gutter)
+
+
+.t_show
+	display none
+
+.t_only-show
+	display none
+
+.p_show
+	display none
+
+
+
+
+@media under-tablet
+	.t_show
+		display block
+
+	.t_hide
+		display none
+
+	//iteratively creates the proper classes for use in html.
+	for num in 1..number-of-columns
+		.t_col-{num}-{number-of-columns}
+			col-width(num)
+
+	[class*='t_col-']
+		col(wrap:'t_', center, inner-b-gutter, dbl-gutter, no-gutter, b-gutter, t-gutter)
+
+
+
+@media only-tablet
+	.t_only-show
+		display block
+
+	.t_only-hide
+		display none
+
+
+
+@media under-phone
+
+	.p_show
+		display block
+
+	.p_hide
+		display none
+
+	//iteratively creates the proper classes for use in html.
+	for num in 1..number-of-columns
+		.p_col-{num}-{number-of-columns}
+			col-width(num)
+
+	[class*='t_col-']
+		col(wrap:'p_', center, inner-b-gutter, dbl-gutter, no-gutter, b-gutter, t-gutter)

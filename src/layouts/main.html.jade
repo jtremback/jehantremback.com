@@ -1,0 +1,26 @@
+---
+layout: "default"
+---
+
+#bgfx
+
+.col-12-12.white-bg.center.dbl-gutter
+	h1.title Jehan Tremback
+
+
+.navbar#affix
+	ul.navbar-inner.col-12-12.center
+		each page in getCollection("html").findAll({category:'top'}).toJSON()
+			if page.indexFor == document.relativeOutDirPath
+				li._active 
+					a(href="#{page.url}")
+						i.icon-caret-left.text-left
+						|#{ page.title }
+			else if page.url == document.url
+				li._active #{ page.title }
+			else
+				a(href="#{page.url}")
+					li #{ page.title }
+
+.col-12-12.center.white-bg.content
+	!{ content }

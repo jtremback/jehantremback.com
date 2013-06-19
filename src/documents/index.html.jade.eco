@@ -1,33 +1,12 @@
 ---
-layout: "default"
+layout: "main"
 isPage: true
 ---
 
-
-#bgfx
-  .el
-  .el
-  .el
-  .el
-  .el
-  .el
-
-#index
-  .fixedcontent
-    a(href="#jehan")
-      h2.about.mid About
-    h1.major 
-      div Jehan
-      div Tremback
-    h2.mid UI &#183; UX &#183; Frontend
-
-  .polaroids
-    <% for project in @site.projects: %>
-    a.repl_hash(href='#<%- project.slug %>')
-      .polaroid
-        h2.title <%- project.name %>
-        img(src='images/<%- project.frontpic %>.png')
-    <% end %>
-
-#content
-  #content-holder.grid
+<% for project in @site.projects: %>
+.col-6-12.t_col-12-12
+	.polaroid
+		a.repl_hash(href='#<%- project.slug %>')
+			h2.title <%- project.name %>
+			img(src='images/<%- project.frontpic %>.png')
+<% end %>

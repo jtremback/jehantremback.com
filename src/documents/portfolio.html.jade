@@ -1,0 +1,13 @@
+---
+layout: "main"
+category: "top"
+indexFor: "portfolio"
+title: "Portfolio"
+---
+
+each page in getCollection('portfolio').toJSON()
+	.col-6-12.t_col-12-12.dbl-gutter
+		.polaroid
+			a(href='#{ page.url }')
+				h2._title !{ page.title }
+				img(src='images/#{ page.slug }_main.png')

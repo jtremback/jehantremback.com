@@ -1,0 +1,13 @@
+a(href="#jehan")
+	h2.about.mid About
+h1.major 
+	div Jehan
+	div Tremback
+
+<% for project in @site.projects: %>
+.col-6-12.t_col-12-12
+	.polaroid
+		a.repl_hash(href='#<%- project.slug %>')
+			h2.title <%- project.name %>
+			img(src='images/<%- project.frontpic %>.png')
+<% end %>

@@ -1,74 +1,58 @@
-//Get Fonts
-WebFontConfig = {
-  google: { families: [ 'Source+Sans+Pro:400,700:latin' ] }
- };
-
-(function() {
-  var wf = document.createElement('script');
-  wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-  wf.type = 'text/javascript';
-  wf.async = 'true';
-  var s = document.getElementsByTagName('script')[0];
-  s.parentNode.insertBefore(wf, s);
-})(); 
+// //Group everything having to do with popup content window together
+// var popup = (function () {
+//   //Assign elements to nice vars
+//   var content = $('#content'),
+//       index = $('#index'),
+//       holder = $('#content-holder'),
+//       prePath = 'content/',
+//       scrollPos;
 
 
 
-//Group everything having to do with popup content window together
-var popup = (function () {
-  //Assign elements to nice vars
-  var content = $('#content'),
-      index = $('#index'),
-      holder = $('#content-holder'),
-      prePath = 'content/',
-      scrollPos;
+//   return {
+//     //read url and get corresponding data
+//     open: function(page) {
+//       var urlFrag = page.replace('#','');
 
+//       // Fetch page content
+//       $.get(prePath + urlFrag + '.html', function(content) {
+//         holder.html(content);
 
+//         //Not going to bother using callbacks now
+//         zoomNpan($(".zoom"))
+//       }, 'text');
 
-  return {
-    //read url and get corresponding data
-    open: function(page) {
-      var urlFrag = page.replace('#','');
+//       //Store scroll info for later
+//       scrollPos = $(window).scrollTop();
+//       $(window).scrollTop(0);
 
-      // Fetch page content
-      $.get(prePath + urlFrag + '.html', function(content) {
-        holder.html(content);
+//       //hide the index
+//       index.addClass('hidden');
 
-        //Not going to bother using callbacks now
-        zoomNpan($(".zoom"))
-      }, 'text');
+//       //show the popup
+//       content.addClass('shown');
+//     },
 
-      //Store scroll info for later
-      scrollPos = $(window).scrollTop();
-      $(window).scrollTop(0);
+//     close: function() {
 
-      //hide the index
-      index.addClass('hidden');
+//       //hide the popup
+//       content.removeClass('shown');
 
-      //show the popup
-      content.addClass('shown');
-    },
+//       //Remove content
+//       holder.empty();
 
-    close: function() {
+//       //show the index
+//       index.removeClass('hidden')
 
-      //hide the popup
-      content.removeClass('shown');
-
-      //Remove content
-      holder.empty();
-
-      //show the index
-      index.removeClass('hidden')
-
-      //set scroll back to former
-      $(window).scrollTop(scrollPos)
-    }
-  };
-})();
+//       //set scroll back to former
+//       $(window).scrollTop(scrollPos)
+//     }
+//   };
+// })();
 
 //Keyed on index and scroll to provide crazy fx for bg
 var bgFx = function(container, val1) {
+  console.log("bgfx");
   for (i = 0; i < 6; i++) {
     var el = $(container).find('.el').eq(i),
         hsla = 'hsla(' 
@@ -87,6 +71,19 @@ var bgFx = function(container, val1) {
     });
   }
 }
+
+//TOPBAR AFFIX
+var targetFromTop = $("#affix").offset().top; 
+$(document).on("scroll", function() {
+  if (Modernizr.mq('only all and (min-width: 767px)')) {
+    var documentScroll = $(document).scrollTop();
+    if (targetFromTop < (documentScroll)) {
+      $("#affix").addClass('-affixed')
+    } else {
+      $("#affix").removeClass('-affixed')
+    }
+  }
+})
 
 
 var zoomNpan = function(zoom) {
@@ -117,39 +114,43 @@ var zoomNpan = function(zoom) {
 }
 
 var init = function() {
-  bgFx('#bgfx', 0)
+  console.log("hello");
+  bgFx($('#bgfx'), 0)
+
+  zoomNpan($(".zoom"))
 
   $(window).scroll(function(){
+    console.log("scroll");
     var s = $(window).scrollTop(),
         d = $(document).height(),
         c = $(window).height(),
         scrollPercent = (s / (d-c)) * 100;
-        bgFx('#bgfx', scrollPercent / 100);
+        bgFx($('#bgfx'), scrollPercent / 100);
   })
 
-  //if window has a hash, run with it.
-  //if not, close it.
-  var hashProc = function() {
-    if (window.location.hash) {
-      popup.open(window.location.hash);
-    } else {
-      popup.close()
-    }
-  }
+  // //if window has a hash, run with it.
+  // //if not, close it.
+  // var hashProc = function() {
+  //   if (window.location.hash) {
+  //     popup.open(window.location.hash);
+  //   } else {
+  //     popup.close()
+  //   }
+  // }
 
-  //run on start
-  hashProc();
+  // //run on start
+  // hashProc();
 
-  $('#content').on('click', function () {
-    window.location.hash = '';
-  })
+  // $('#content').on('click', function () {
+  //   window.location.hash = '';
+  // })
 
-  $('#content-holder').on('click', function (e) {
-    e.stopPropagation();
-  })
+  // $('#content-holder').on('click', function (e) {
+  //   e.stopPropagation();
+  // })
 
-  //respond to hash changes w/out reloads
-  $(window).on('hashchange', function() {
-    hashProc();
-  });
+  // //respond to hash changes w/out reloads
+  // $(window).on('hashchange', function() {
+  //   hashProc();
+  // });
 }();

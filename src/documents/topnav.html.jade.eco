@@ -1,0 +1,5 @@
+.navbar
+	.navbar-inner
+<% for page in @getCollection("html").findAll({isPage:true}).toJSON(): %>
+		div <%= page.title %>
+<% end %>
