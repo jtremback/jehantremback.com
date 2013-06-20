@@ -1,5 +1,0 @@
-%img.bg{:src => "images/barksky.gif"}
-
--#.background
-.container
-	.surface
