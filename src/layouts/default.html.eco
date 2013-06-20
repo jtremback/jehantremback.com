@@ -1,9 +1,10 @@
+<!DOCTYPE HTML>
 <html>
 	<head>
 		<title><%= @getPreparedTitle() %></title>
 		<%- @getBlock("meta").toHTML() %>
-		<%- @getBlock("styles").add(["/styles/style.css"]).toHTML() %>
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700:latin' rel='stylesheet' type='text/css'>
+		<%- @getBlock("styles").add(["/styles/style.css", "/vendor/okaida.css"]).toHTML() %>
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700:latin|Merriweather' rel='stylesheet' type='text/css'>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet"/>
 	
 	<!--Le HTML5 shim, for IE6-8 support of HTML5 elements--><!--if lt IE 9-->
@@ -11,7 +12,7 @@
 	</head>
 	<body>
 		<%- @content %>
-		<%- @getBlock("scripts").add(["/vendor/jquery191.js", "/scripts/modernizr_mq.js", "/vendor/pep.js", "/scripts/script.js"]).toHTML() %>
+		<%- @getBlock("scripts").add(["/vendor/jquery191.js", "/scripts/modernizr_mq.js", "/vendor/pep.js", "/vendor/prism.js", "/scripts/script.js"]).toHTML() %>
 		<script>
 		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

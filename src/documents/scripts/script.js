@@ -127,30 +127,4 @@ var init = function() {
         scrollPercent = (s / (d-c)) * 100;
         bgFx($('#bgfx'), scrollPercent / 100);
   })
-
-  // //if window has a hash, run with it.
-  // //if not, close it.
-  // var hashProc = function() {
-  //   if (window.location.hash) {
-  //     popup.open(window.location.hash);
-  //   } else {
-  //     popup.close()
-  //   }
-  // }
-
-  // //run on start
-  // hashProc();
-
-  // $('#content').on('click', function () {
-  //   window.location.hash = '';
-  // })
-
-  // $('#content-holder').on('click', function (e) {
-  //   e.stopPropagation();
-  // })
-
-  // //respond to hash changes w/out reloads
-  // $(window).on('hashchange', function() {
-  //   hashProc();
-  // });
 }();

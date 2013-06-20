@@ -9,7 +9,7 @@ docpadConfig = {
 		portfolio: ->
 			@getCollection("html").findAllLive({relativeOutDirPath: 'portfolio'},[{order:1}])
 		blog: ->
-			@getCollection("html").findAllLive({relativeOutDirPath: 'blog'},[{order:1}])
+			@getCollection("html").findAllLive({relativeOutDirPath: 'blog'},[{date:1}])
 
 	templateData:
 		site:

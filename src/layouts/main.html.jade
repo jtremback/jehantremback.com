@@ -9,18 +9,18 @@ layout: "default"
 
 
 .navbar#affix
-	ul.navbar-inner.col-12-12.center
+	.navbar-inner.col-12-12.center
 		each page in getCollection("html").findAll({category:'top'}).toJSON()
 			if page.indexFor == document.relativeOutDirPath
-				li._active 
+				._item.-active 
 					a(href="#{page.url}")
 						i.icon-caret-left.text-left
 						|#{ page.title }
 			else if page.url == document.url
-				li._active #{ page.title }
+				._item.-active #{ page.title }
 			else
 				a(href="#{page.url}")
-					li #{ page.title }
+					._item #{ page.title }
 
 .col-12-12.center.white-bg.content
 	!{ content }

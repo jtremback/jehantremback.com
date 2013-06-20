@@ -1,0 +1,307 @@
+---
+title: "Challenges in CSS grid systems"
+slug: "css-grids"
+layout: "interior"
+date: 2013-06-19
+---
+
+p CSS grids are extremely useful for any kind of web design. They give you consistent horizontal spacing, sizing, and rhythm. They also eliminate a lot of repetetive layout-related css that you would otherwise need to write. However, they can be a bit brain-bending. I'm going to go over the construction of a grid and how I have dealt with many of the challenges that come up. 
+p There are many different ways to build grids, and most of the choices are a matter of personal preference. In this grid, I choose explicit syntax over implicit "automatic" behavior. In my opinion, it is much quicker to type a few extra classes when you are building your layout than to debug unexpected side effects of "automatic" behavior.
+p I have written this grid in Stylus, because it is one of the better CSS preprocessors out there. If you are writing any amount of CSS without a preprocessor, it is because you hate yourself. There's LESS, but it is woefully underpowered. I would consider LESS a partial preprocessor, or a proto-preprocessor. SASS is another option, and has most of the same features as Stylus, but with a more verbose syntax.
+
+h2 Columns
+p This is the heart of the grid. Instead of doing a bunch of math and typing out a bunch of column classes, I have used the power of Stylus to do it for me. The col() function takes the number of columns and calculates the right width. I am using a syntax that looks like a fraction- .col-1-12, .col-4-12 and the like. I could use something like .col-1 and .col-4, but in my mind the extra bit of typing is OK and is a nice reminder. I am also setting a max-width for each column. This is to keep your design from getting all stretched out at large screen sizes.
+
+pre.
+	page-width = 1140px
+	number-of-columns = 12
+
+	//calculates the width and max-width given the intended number of columns.
+	//can be used anywhere in your stylesheet.
+	col(num)
+		col-width = 100% / number-of-columns
+		col-max-width = page-width / number-of-columns
+		width col-width * num
+		max-width col-max-width * num
+
+	//iteratively creates the proper classes for use in html.
+	for num in 1..number-of-columns
+		.col-{num}-{number-of-columns}
+			col(num)
+
+h2 Gutters
+p This is the other main component of a grid. Having consistent gutters will give your design a clean and ordered feel. However, it can get a bit tricky, especially around the edges. There are two main styles- symmetrical and asymmetrical. With asymmetrical gutters, each column has left or right padding of the full width of the gutter. The container then has the opposite padding. This works OK in simple situations.
+pre.
+	//EXAMPLE- not in source
+	.column
+		padding-right: gutter
+
+	.container
+		padding-left: gutter
+
+p With symmetrical gutters, the container and the column both have padding of one half of the gutter width. When any of these elements are next to or inside of each other, the padding adds up to the full gutter width. This makes a little more sense, is better for nesting, and allows you to do stuff like placing a border (almost) exactly between two elements.
+
+pre.
+	//EXAMPLE- not in source
+	.column
+		padding-left: gutter * .5
+		padding-right: gutter * .5
+
+	.container
+		padding-left: gutter * .5
+		padding-right: gutter * .5
+
+	//notice that both of these have the same properties?
+
+h2 Semantics
+p  In my opinion, it can get confusing to have these two different types of elements, especially when nesting. Is this thing a container or a column or both a container and a column? Would it be better if I put the container inside of the column? These kinds of questions are a waste of time to answer.
+
+p I noticed that most of the properties set on the container in many grids are either unnecesary or cause no problems when set on the column, so I have combined both of these classes into one that you can use anywhere. A column has these properties set: the width, the padding, a left float to make the columns line up next to each other, and a clearfix for any columns inside.
+
+
+pre.
+	[class*='col-']
+		padding-right grid-padding * .5
+		padding-left grid-padding * .5
+		float left
+		&:after
+			content ""
+			display table
+			clear both
+
+h2 Responsiveness
+p Since the grid is percent based, it is already fuid. But this is not enough to make a design that looks good on all devices. Notice, that as you resize your screen, the columns become really squished. We need some way of switching the column width depending on screen size. Enter the media query. We're going to be working with two breakpoints, for phone and tablet. You can add more if you need them, but I won't cover that here. We start by setting variables for the sizes. 
+
+pre.
+	tablet = 767px
+	phone = 480px
+
+p From these, we can derive the media query strings. 
+
+pre.
+	under-tablet = "screen and (max-width: " + tablet + ")"
+	under-phone  = "screen and (max-width: " + phone + ")"
+
+	over-tablet = "screen and (min-width: " + tablet + ")"
+	over-phone  = "screen and (min-width: " + phone + ")"
+
+	only-tablet = "screen and (max-width: " + tablet + ") and (min-width: " + phone + ")"
+
+p We now set up the actual media queries and their grids. We use the same iterator we used for the base grid, but notice that we namespace the col class. We also set up some -show and -hide classes, which come in really handy.
+
+pre.
+	.t-show
+		display none
+
+	.t-only-show
+		display none
+
+	.p-show
+		display none
+
+
+	@media under-tablet
+		.t-show
+			display block
+
+		.t-hide
+			display none
+
+		//iteratively creates the proper classes for use in html.
+		for num in 1..number-of-columns
+			.t-col-{num}-{number-of-columns}, .row-{num}-{number-of-columns}
+				col-width(num)
+
+
+	@media only-tablet
+		.t-only-show
+			display block
+
+		.t-only-hide
+			display none
+
+
+	@media under-phone
+
+		.p-show
+			display block
+
+		.p-hide
+			display none
+
+		//iteratively creates the proper classes for use in html.
+		for num in 1..number-of-columns
+			.p-col-{num}-{number-of-columns}, .row-{num}-{number-of-columns}
+				col-width(num)
+
+p Let's try this out on a simple example. First, without the responsive columns. Resize your screen, and see it get all squished.
+
+//- .col-12-12.center
+//- 	.col-4-12
+//- 		.col-12-12.no-gutter
+//- 			img(src="/images/edward-snowden.jpg")
+//- 		.col-12-12.no-gutter Hamas afghanistan, recruitment airplane, attack gas nbic nationalist blizzard biological social. Brush fire u.s. citizenship and immigration services abu sayyaf, militia gas mexicles denial of service.
+
+//- 	.col-8-12 Exposure earthquake drug cartel forest fire avian, influenza noc dndo. Disaster management palestine libration organization tb nationalist crash palestine liberation front. Nuclear facility screening salmonella cis port ice body scanner computer infrastructure cdc evacuation. Power mysql injection biological sick burst national infrastructure yuma food poisoning. Exposure earthquake drug cartel forest fire avian, influenza noc dndo. Disaster management palestine libration organization tb nationalist crash palestine liberation front. Nuclear facility screening salmonella cis port ice body scanner computer infrastructure cdc evacuation. Power mysql injection biological sick burst national infrastructure yuma food poisoning. Exposure earthquake drug cartel forest fire avian, influenza noc dndo. Disaster management palestine libration organization tb nationalist crash palestine liberation front. Nuclear facility screening salmonella cis port ice body scanner computer infrastructure cdc evacuation. Power mysql injection biological sick burst national infrastructure yuma food poisoning. Exposure earthquake drug cartel forest fire avian, influenza noc dndo. Disaster management palestine libration organization tb nationalist crash palestine liberation front. Nuclear facility screening salmonella cis port ice body scanner computer infrastructure cdc evacuation. Power mysql injection biological sick burst national infrastructure yuma food poisoning.
+
+p Let's try this with the responsive classes.
+
+//- .col-12-12.fakebody
+//- 	.col-4-12.no-gutter.t_col-12-12.t_v-gutter
+//- 		.col-12-12.t_col-6-12.p_col-12-12
+//- 			img(src="/images/edward-snowden.jpg")
+//- 		.col-12-12.t_col-6-12.p_col-12-12.b-gutter Spammer ullamco palestine liberation front lacus quis arcu felis, commodo.
+
+//- 	.col-8-12.t_col-12-12 Duis prevention vulputate, orci mauris et mauris. Lectus pipe bomb national infrastructure enim pork mauris, virus odio. World health organization, denial of service tremor mi, magna et suscipit national guard elit, turpis,. Industrial spill vel, orci, lorem bust, eget donec.
+
+
+
+h2
+	code .-center
+
+p Adding the 
+	code .-center 
+	|modifier causes the column to lose its left float and center itself horizontally in its container. We can use this to create a top-level "container".
+
+
+//- .col-12-12.center
+//- 	.col-4-12
+//- 		img(src="/images/edward-snowden.jpg")
+//- 	.col-8-12 Exposure earthquake drug cartel forest fire avian, influenza noc dndo. Disaster management palestine libration organization tb nationalist crash palestine liberation front. Nuclear facility screening salmonella cis port ice body scanner computer infrastructure cdc evacuation. Power mysql injection biological sick burst national infrastructure yuma food poisoning. Public health aqim relief police mitigation, michoacana afghanistan hacker un ttp. Rootkit nuclear facility agro militia norvo virus malware exposure extreme weather brown out attack. Hamas powder suspicious package/device national operations center fema power outage phishing.
+|<pre><code class="language-markup">&lt;body&gt;
+|	&lt;div class=&quot;col-12-12 center&quot;&gt;
+|		&lt;div class=&quot;col-4-12&quot;&gt;...&lt;/div&gt;
+|		&lt;div class=&quot;col-8-12&quot;&gt;...&lt;/div&gt;
+|	&lt;/div&gt;
+|&lt;/body&gt;</code></pre>
+
+p We can also center stuff inside other columns.
+
+	pre.
+		<body>
+			<div class="col-12-12 .-center">
+				<div class="col-9-12 -center">...</div>
+			</div>
+		</body>
+
+.col-12-12.center
+	.col-9-12.center
+		|Brush fire u.s. citizenship and immigration services abu sayyaf, militia gas mexicles denial of service. Hamas afghanistan, recruitment airplane, attack gas nbic nationalist blizzard biological social. Hamas afghanistan, recruitment airplane, attack gas nbic nationalist blizzard biological social. Brush fire u.s. citizenship and immigration services abu sayyaf, militia gas mexicles denial of service.
+
+h2
+	|Nesting with 
+	code .-nopad
+pre.
+	[class*="col"]
+		&.-nopad
+			padding-left 0
+			padding-right 0
+p Nesting starts to get a bit tricky. If we naively nest columns inside each other, the gutters pile up innapropriately. As you can see, the gutter between the image and the first text block is 1.5 times larger than it should be.
+
+pre.
+	<div class="col-12-12 -center">
+		<div class="col-4-12"><img src="/images/edward-snowden.jpg"></div>
+		<div class="col-8-12">
+			<div class="col-6-12">...</div>
+			<div class="col-6-12">
+				<div class="col-6-12">...</div>
+				<div class="col-6-12">...</div>
+			</div>
+		</div>
+	</div>
+
+
+.col-4-12
+	img(src="/images/edward-snowden.jpg")
+.col-8-12
+	.col-6-12 Exposure earthquake drug cartel forest fire avian, influenza noc dndo. Disaster management palestine libration organization tb nationalist crash palestine liberation front. Nuclear facility screening salmonella cis port ice body scanner computer infrastructure cdc evacuation. Power mysql injection biological sick burst national infrastructure yuma food poisoning.
+	.col-6-12
+		.col-6-12 Public health aqim relief police mitigation, michoacana afghanistan hacker un ttp. 
+		.col-6-12 Rootkit nuclear facility agro militia norvo virus malware exposure extreme weather brown out attack. 
+
+p Other grids solve this problem with a container class that is distinct from the column class. I'd like to be more explicit about it. 
+
+p The <code>.-nopad</code> class simply removes the left and right padding from any column it is placed on. If a column that is inside another column has other columns inside of it, use <code>.-nopad</code>. To make it even simpler, basically, if there's too much padding somewhere, add .-nopad to correct it. Boom. Not very semantic, but will eliminate hours of debugging.
+
+pre.
+	<div class="col-12-12 -center">
+		<div class="col-4-12"><img src="/images/edward-snowden.jpg"></div>
+		<div class="col-8-12 -nopad">
+			<div class="col-6-12">...</div>
+			<div class="col-6-12 -nopad">
+				<div class="col-6-12">...</div>
+				<div class="col-6-12">...</div>
+			</div>
+		</div>
+	</div>
+
+.col-4-12
+	img(src="/images/edward-snowden.jpg")
+.col-8-12.no-gutter
+	.col-6-12 Exposure earthquake drug cartel forest fire avian, influenza noc dndo. Disaster management palestine libration organization tb nationalist crash palestine liberation front. Nuclear facility screening salmonella cis port ice body scanner computer infrastructure cdc evacuation. Power mysql injection biological sick burst national infrastructure yuma food poisoning.
+	.col-6-12.no-gutter
+		.col-6-12 Public health aqim relief police mitigation, michoacana afghanistan hacker un ttp. 
+		.col-6-12 Rootkit nuclear facility agro militia norvo virus malware exposure extreme weather brown out attack.
+
+p You can also use <code>.-nopad</code> for other stuff
+
+
+
+h2 Reflow
+p Sometimes it's nice to have elements reflow into the space available to them. This is useful if you are going to be dealing with an indeterminate number of elements, and it will also prove quite useful when we get into responsive grids.
+ 
+.col-12-12.center
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+
+p This is quite simple, but it might look funny if we don't use another class, the .inner-v-gutter class. 
+
+.col-12-12.center.inner-v-gutter
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12 
+		img(src="/images/edward-snowden.jpg")
+	.col-2-12
+		img(src="/images/edward-snowden.jpg")
+
+p I've made all the options into a mixin. This helps eliminate repition in the grid's stylus code and allows you to mix the classes into your main stylus code to eliminate reptition. This will result in a bit of bloat as opposed to using the classes in your html, but makes your code much more maintainable. Also, gzip deals very well with repeating strings in say, a css file. 

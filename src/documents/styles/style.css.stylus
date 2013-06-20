@@ -1,5 +1,8 @@
 @import "objectgrid"
 
+serif-font = "Merriweather", serif 
+sans-font = "Source Sans Pro", sans-serif
+
 bottomborder = .08em solid #333
 
 offwhite = #efefef
@@ -27,8 +30,17 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
 	display: block
 
-p
-	margin-bottom .5em
+//PAGE
+html, body
+	font-family serif-font
+	text-rendering: optimizeLegibility
+	font-size: 18px
+	word-spacing: .15em
+	line-height: 1.5
+	color: offblack
+
+p, pre
+	margin-bottom .75em
 
 ol, ul
 	margin-left: 1em
@@ -50,10 +62,11 @@ q
 		content: ''
 		content: none
 
-code
-	background-color: #f4f4f4
-	font-family: Menlo, 'Panic Sans', monospace
-	font-size: 0.875em
+// code, pre
+// 	background-color: #f4f4f4
+// 	font-family: Menlo, 'Panic Sans', monospace
+// 	font-size: 0.875em
+// 	white-space pre-wrap
 
 table
 	border-collapse: collapse
@@ -69,6 +82,9 @@ hr
 	background: #333
 
 h1, h2, h3, h4, h5, h6
+	font-family sans-font
+	line-height .9em
+	margin-top .5em
 	margin-bottom: .5em
 	font-weight: 700
 
@@ -100,13 +116,6 @@ a
 img
 	width: 100%
 
-.row
-	margin-bottom: 1em
-	max-width: 100%
-
-.inline
-	display: inline
-
 .pull-right
 	float right
 
@@ -125,13 +134,7 @@ img
 .offwhite-bg
 	background offwhite
 
-//PAGE
-html, body
-	font-family: "Source Sans Pro", sans
-	font-size: 23px
-	word-spacing: .15em
-	line-height: 1.3
-	color: offblack
+
 
 #bgfx
 	offwhite-grad()
@@ -155,21 +158,24 @@ ul.nolist
 		margin 0
 
 .navbar
+	font-family sans-font
+	font-size 1.25em
 	background #333
 	color white
 	font-weight 700
 	list-style-type none
 	a 
 		color inherit
-	li 
+	._item
 		line-height .9
 		float left
 		padding gutter * .5
 		margin 0
 		i 
+			line-height inherit
 			width auto
 			padding-right gutter * .5
-		&._active
+		&.-active
 			color offblack
 			background white
 	&.-affixed
@@ -200,6 +206,11 @@ ul.nolist
 
 .content
 	padding-top gutter * 2
+
+.fakebody
+	background offblack
+	font-family sans-font
+	color white
 
 //IMAGE ZOOM AND PAN
 .zoom
