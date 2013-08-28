@@ -184,11 +184,15 @@ ul.nolist
 		z-index 1
 		width 100%
 
+.main 
+	border-top 1px solid transparent
+	margin-top 1em
 
 .title
 	line-height .9
 	font-size 4.5em
 	margin-bottom gutter
+	// margin-top -1em
 
 .polaroid
 	color: #333

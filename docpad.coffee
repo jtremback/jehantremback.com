@@ -1,4 +1,3 @@
-_ = require('underscore')
 categories = {}
 
 # Define the Configuration

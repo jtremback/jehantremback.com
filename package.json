@@ -1,0 +1,21 @@
+{
+  "name": "jehantremback.com",
+  "version": "0.0.0",
+  "description": "Jehan's Website",
+  "main": "index.js",
+  "dependencies": {
+    "docpad": "~6.48.0",
+    "docpad-plugin-eco": "~2.0.2",
+    "docpad-plugin-jade": "~2.5.0",
+    "docpad-plugin-stylus": "~2.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jtremback/jehantremback.com.git"
+  },
+  "author": "Jehan Tremback",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/jtremback/jehantremback.com/issues"
+  }
+}
